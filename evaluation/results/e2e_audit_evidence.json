@@ -1,0 +1,79 @@
+{
+  "step1_health": {
+    "status_code": 200,
+    "body": {
+      "status": "HEALTHY",
+      "environment": "development"
+    },
+    "latency_ms": 52.06
+  },
+  "step2_user_login": {
+    "status_code": 200,
+    "role": "user",
+    "latency_ms": 602.78
+  },
+  "step3_admin_login": {
+    "status_code": 200,
+    "role": "admin",
+    "latency_ms": 544.66
+  },
+  "step4_upload": {
+    "status_code": 202,
+    "document_id": 3,
+    "job_id": 3,
+    "latency_ms": 1574.81
+  },
+  "step5_ingestion": {
+    "doc_status": "READY",
+    "total_pages": 4,
+    "is_scanned": false,
+    "ingestion_latency_ms": 111.14
+  },
+  "step7_chunks": {
+    "chunk_count": 17,
+    "has_dense_embeddings": true,
+    "has_rule_numbers": true
+  },
+  "step11_chat_suspension": {
+    "status_code": 200,
+    "conversation_id": 9,
+    "is_abstention": false,
+    "citations_count": 3,
+    "first_citation": {
+      "chunk_id": 45,
+      "document_id": 3,
+      "document_name": "Bccl Cda Rules Audit Test",
+      "page_number": 3,
+      "rule_number": "Rule 26",
+      "section_title": "CHAPTER III: DISCIPLINE AND SUSPENSION - Rule 26: Suspension",
+      "excerpt": "Rule 26: Suspension (1) The Appointing Authority or Disciplinary Authority or any authority empowered in that behalf by the Board may place an e (a) Where a disciplinary proceeding against him is c...",
+      "score": 0.6891
+    },
+    "latency_ms": 31.2
+  },
+  "step15_follow_up": {
+    "status_code": 200,
+    "is_abstention": false,
+    "citations_count": 3,
+    "latency_ms": 23.22
+  },
+  "step17_abstention": {
+    "status_code": 200,
+    "is_abstention": true,
+    "citations_count": 0,
+    "answer": "I could not find sufficient information about this in the available BCCL documents.",
+    "latency_ms": 19.99
+  },
+  "step19_rbac_unauth": {
+    "status_code": 403,
+    "detail": "Administrator access required for this operation"
+  },
+  "step21_rate_limit": {
+    "hit_429": true
+  },
+  "step22_db_consistency": {
+    "total_audit_logs": 20,
+    "total_conversations": 10,
+    "total_messages": 24
+  }
+}

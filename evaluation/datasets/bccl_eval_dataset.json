@@ -1,0 +1,82 @@
+[
+  {
+    "id": "TC-01",
+    "query": "What are the rules for suspension?",
+    "category": "Disciplinary - Suspension",
+    "expected_rule": "Rule 26",
+    "expected_keywords": ["suspension", "subsistence allowance", "50%", "appointing authority"],
+    "is_abstention_expected": false
+  },
+  {
+    "id": "TC-02",
+    "query": "Explain major penalties.",
+    "category": "Disciplinary - Penalties",
+    "expected_rule": "Rule 27",
+    "expected_keywords": ["major penalties", "reduction", "compulsory retirement", "removal", "dismissal"],
+    "is_abstention_expected": false
+  },
+  {
+    "id": "TC-03",
+    "query": "What constitutes misconduct?",
+    "category": "Conduct - Misconduct",
+    "expected_rule": "Rule 5",
+    "expected_keywords": ["theft", "fraud", "insubordination", "bribe", "absence", "misconduct"],
+    "is_abstention_expected": false
+  },
+  {
+    "id": "TC-04",
+    "query": "Can an employee appeal a penalty?",
+    "category": "Appeals - Rights and Procedure",
+    "expected_rule": "Rule 34",
+    "expected_keywords": ["appeal", "appellate authority", "45 days", "limitation"],
+    "is_abstention_expected": false
+  },
+  {
+    "id": "TC-05",
+    "query": "What is the policy for leave encashment in overseas branches?",
+    "category": "Abstention - Out of Scope",
+    "expected_rule": null,
+    "expected_keywords": [],
+    "is_abstention_expected": true
+  },
+  {
+    "id": "TC-06",
+    "query": "What are the minor penalties specified under BCCL rules?",
+    "category": "Disciplinary - Minor Penalties",
+    "expected_rule": "Rule 27",
+    "expected_keywords": ["censure", "withholding of promotion", "recovery", "increments"],
+    "is_abstention_expected": false
+  },
+  {
+    "id": "TC-07",
+    "query": "What is the procedure for imposing major penalties and inquiry officer appointment?",
+    "category": "Disciplinary - Procedure",
+    "expected_rule": "Rule 29",
+    "expected_keywords": ["inquiry", "articles of charge", "statement of defense", "witnesses"],
+    "is_abstention_expected": false
+  },
+  {
+    "id": "TC-08",
+    "query": "What are the general rules regarding employee conduct and integrity?",
+    "category": "Conduct - General Integrity",
+    "expected_rule": "Rule 4",
+    "expected_keywords": ["integrity", "devotion to duty", "supervisory position"],
+    "is_abstention_expected": false
+  },
+  {
+    "id": "TC-09",
+    "query": "What is the reimbursement scheme for personal astronaut flight gear?",
+    "category": "Abstention - Fabricated Query",
+    "expected_rule": null,
+    "expected_keywords": [],
+    "is_abstention_expected": true
+  },
+  {
+    "id": "TC-10",
+    "query": "How many days does an employee have to file an appeal against a penalty order?",
+    "category": "Appeals - Limitation Period",
+    "expected_rule": "Rule 34",
+    "expected_keywords": ["45", "forty-five", "appeal", "limitation"],
+    "is_abstention_expected": false
+  }
+]

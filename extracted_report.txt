@@ -1,0 +1,1166 @@
+=== PAGE 1 ===
+1 
+ 
+INTERNSHIP PROJECT REPORT  
+ON 
+Design and Development of an Enterprise AI-Powered Knowledge 
+Retrieval System 
+for Bharat Coking Coal Limited (BCCL) using Retrieval-Augmented 
+Generation (RAG) 
+Submitted to  
+BHARAT COKING COAL LIMITED (B.C.C.L.) 
+Koyla Bhawan, Koyla Nagar, Dhanbad, Jharkhand – 826005 
+ 
+ 
+Under the Guidance of  
+Mr. Romesh Mani Lall (Assistant Manager) 
+Systems Department, BCCL 
+Submitted by 
+Aditya Kumar Jha 
+Reg. No.: 23BAI0126 
+B.Tech in Computer Science Engineering With Specialization in AI-ML                  
+Vellore Institute of Technology, Vellore, Tamil Nadu 
+
+=== PAGE 2 ===
+2 
+ 
+DECLARATION 
+I, Aditya Kumar Jha, hereby declare that the internship report titled "Design and 
+Development of an Enterprise AI-Powered Knowledge Retrieval System for Bharat 
+Coking Coal Limited (BCCL) using Retrieval-Augmented Generation (RAG)" is a 
+record of my original work carried out during the prescribed internship period at Bharat 
+Coking Coal Limited (BCCL) under the Systems Department. The work presented in 
+this report has been completed under the guidance and supervision of the concerned 
+authorities and my industry guide, Mr. Romesh Mani Lall. 
+This report documents the complete design, development, configuration, testing, and 
+evaluation of an Enterprise AI-powered Knowledge Retrieval System developed to 
+assist employees in accessing information from the official BCCL Conduct, Discipline 
+and Appeal (CDA) Rules. The solution leverages modern Artificial Intelligence 
+technologies, including Retrieval-Augmented Generation (RAG), Large Language 
+Models (LLMs), semantic document retrieval, OCR-enabled document processing, 
+and prompt engineering, implemented using the Botpress AI platform. 
+The project involved the creation of a searchable knowledge base by processing official 
+rule documents, configuring AI workflows, optimizing prompts for accurate document-
+grounded responses, customizing the chatbot user interface, and validating the system 
+through extensive testing using multiple rule-based queries. The developed assistant 
+provides concise, structured, and context-aware responses while maintaining alignment 
+with the information available in the uploaded organizational documents. 
+All methodologies, system configurations, observations, experimental results, and 
+interpretations presented in this report accurately represent the work carried out by me 
+during the internship. Every effort has been made to ensure that the implementation 
+adheres to professional software engineering practices, responsible AI principles, and the 
+organizational guidelines followed at Bharat Coking Coal Limited. 
+I further declare that this report has not been submitted, either wholly or partially, for the 
+award of any internship, training, degree, diploma, certification, or academic 
+qualification at any other institution or organization. The contents of this report are 
+submitted solely for the purpose of internship evaluation and academic assessment. 
+I also affirm that Bharat Coking Coal Limited (BCCL), Vellore Institute of Technology 
+(VIT), and the associated authorities shall not be held responsible for any interpretation, 
+modification, or application of the information contained in this report beyond its 
+intended academic and organizational objectives.  
+ 
+
+=== PAGE 3 ===
+3 
+ 
+CERTIFICATE 
+This is to certify that the internship project entitled "Design and Development of an 
+Enterprise AI-Powered Knowledge Retrieval System for Bharat Coking Coal 
+Limited (BCCL) using Retrieval-Augmented Generation (RAG)" is a bona fide work 
+carried out by Mr. Aditya Kumar Jha (Reg. No. 23BAI0126), a student of B.Tech 
+Computer Science and Engineering (Artificial Intelligence & Machine Learning), 
+Vellore Institute of Technology (VIT), Vellore, who successfully completed a six-week 
+unpaid internship at Bharat Coking Coal Limited (BCCL), Dhanbad, under the 
+Systems Department, during the period specified in the internship offer letter, under our 
+supervision and guidance. 
+During the internship, the student worked on the design, development, and evaluation of 
+an Enterprise AI-Powered Knowledge Retrieval System for intelligent access to official 
+BCCL documents. The project demonstrates the practical application of Retrieval-
+Augmented Generation (RAG), Large Language Models (LLMs), prompt 
+engineering, OCR-assisted document processing, and enterprise knowledge 
+management using the Botpress AI platform. To the best of our knowledge and belief, 
+the work presented in this report is original and was carried out by the student during the 
+internship period.  
+We wish him every success in his future academic and professional endeavours. 
+Place: Dhanbad, Jharkhand 
+Date: ___________________ 
+ 
+ 
+ 
+ 
+ 
+Mr. D. P. Mishra 
+General Manager (System) 
+Bharat Coking Coal Limited (BCCL) 
+Koyla Bhawan, Koyla Nagar, Dhanbad, Jharkhand 
+
+=== PAGE 4 ===
+4 
+ 
+CERTIFICATE 
+This is to certify that the internship project entitled "Design and Development of an 
+Enterprise AI-Powered Knowledge Retrieval System for Bharat Coking Coal 
+Limited (BCCL) using Retrieval-Augmented Generation (RAG)" is a bona fide work 
+carried out by Mr. Aditya Kumar Jha (Reg. No. 23BAI0126), a student of B.Tech 
+Computer Science and Engineering (Artificial Intelligence & Machine Learning), 
+Vellore Institute of Technology (VIT), Vellore, who successfully completed a six-week 
+unpaid internship at Bharat Coking Coal Limited (BCCL), Dhanbad, under the 
+Systems Department, during the period specified in the internship offer letter, under our 
+supervision and guidance. 
+During the internship, the student worked on the design, development, and evaluation of 
+an Enterprise AI-Powered Knowledge Retrieval System for intelligent access to official 
+BCCL documents. The project demonstrates the practical application of Retrieval-
+Augmented Generation (RAG), Large Language Models (LLMs), Prompt 
+engineering, OCR-assisted document processing, and enterprise knowledge 
+management using the Botpress AI platform. To the best of our knowledge and belief, 
+the work presented in this report is original and was carried out by the student during the 
+internship period.  
+We wish him every success in his future academic and professional endeavours. 
+Place: Dhanbad, Jharkhand 
+Date: ___________________ 
+ 
+ 
+ 
+ 
+ 
+ 
+Mr. Romesh Mani Lall  
+Assistant Manager (System Department) 
+Bharat Coking Coal Limited (BCCL) 
+Koyla Bhawan, Koyla Nagar, Dhanbad, Jharkhand 
+
+=== PAGE 5 ===
+5 
+ 
+ACKNOWLEDGEMENT 
+I would like to express my sincere gratitude to Mr. Romesh Mani Lall, my Industry 
+Guide from the Systems Department, Bharat Coking Coal Limited (BCCL), for his 
+invaluable guidance, continuous encouragement, and constant support throughout the 
+internship. His technical insights, constructive suggestions, and timely feedback greatly 
+contributed to the successful completion of this project and enhanced my understanding 
+of enterprise software systems and Artificial Intelligence applications. 
+I am deeply thankful to the Systems Department, Bharat Coking Coal Limited 
+(BCCL), Dhanbad, for providing me with the opportunity to undertake my industrial 
+internship in a professional and intellectually stimulating environment. The exposure to 
+real-world industrial workflows, enterprise knowledge management practices, and AI-
+driven solutions enabled me to bridge the gap between academic learning and practical 
+implementation. 
+I would also like to express my heartfelt gratitude to Vellore Institute of Technology 
+(VIT), Vellore, and the faculty members of the School of Computer Science 
+Engineering (SCOPE) for their continuous encouragement, guidance, and support 
+throughout my academic journey. The knowledge and skills acquired during my 
+coursework provided a strong foundation for successfully carrying out this internship 
+project. 
+I am grateful to all the officers and staff members of Bharat Coking Coal Limited who 
+directly or indirectly assisted me during the internship by sharing their knowledge, 
+providing valuable suggestions, and extending their cooperation whenever required. 
+Finally, I would like to express my sincere thanks to my parents, family members, and 
+friends for their unwavering support, motivation, and encouragement throughout the 
+internship period. Their constant faith in me inspired me to complete this project with 
+dedication and enthusiasm. 
+ 
+ 
+ 
+ 
+ 
+ 
+
+=== PAGE 6 ===
+6 
+ 
+INDEX 
+Contents 
+Page No. 
+Declaration 
+2 
+Certificate 
+3 
+Acknowledgement 
+5 
+Index 
+6 
+CIL 
+7 
+BCCL 
+8 
+Abstract 
+9 
+Chapter 1: Introduction 
+10-12 
+   • Problem Statement 
+11 
+   • Objectives 
+12 
+Chapter 2: System Analysis 
+13-15 
+   • Existing System 
+13 
+   • Proposed System 
+14 
+   • Advantages of the Proposed System 
+15 
+Chapter 3: System Architecture 
+16-18 
+   • Overall System Architecture 
+16 
+   • System Workflow 
+17 
+   • System Components 
+18 
+Chapter 4: Technologies Used 
+19-21 
+Chapter 5: System Implementation 
+22-28 
+   • Bot Creation and Initial Configuration 
+22 
+   • Knowledge Base Creation 
+23 
+   • Autonomous Node Configuration 
+24 
+   • Prompt Engineering 
+25 
+   • User Interface Customization 
+26 
+   • Testing and Validation 
+27 
+   • Deployment 
+28 
+Chapter 6: Results and Discussion 
+29-31 
+Chapter 7: Challenges, Future Scope and Conclusion 32-34 
+Chapter 8: References 
+34 
+ 
+ 
+ 
+
+=== PAGE 7 ===
+7 
+ 
+Coal India Limited (CIL) 
+Coal India Limited (CIL) is the world's largest coal-producing company and a 
+Maharatna Public Sector Enterprise under the Ministry of Coal, Government of India. 
+Established in 1975 and headquartered in Kolkata, West Bengal, CIL plays a pivotal 
+role in meeting India's energy requirements and supporting the country's industrial and 
+economic development. 
+CIL accounts for a significant share of India's domestic coal production, supplying coal 
+to major sectors such as thermal power generation, steel manufacturing, cement 
+production, fertilizers, and other core industries. Through its extensive mining operations, 
+modern technologies, and large workforce, the company ensures a reliable supply of coal, 
+which is essential for maintaining the nation's energy security and industrial growth. 
+The company operates through eight producing subsidiaries and one mine planning and 
+consultancy organization. The major coal-producing subsidiaries of Coal India Limited 
+are: 
+• 
+Bharat Coking Coal Limited (BCCL) 
+• 
+Eastern Coalfields Limited (ECL) 
+• 
+Central Coalfields Limited (CCL) 
+• 
+Northern Coalfields Limited (NCL) 
+• 
+Western Coalfields Limited (WCL) 
+• 
+South Eastern Coalfields Limited (SECL) 
+• 
+Mahanadi Coalfields Limited (MCL) 
+• 
+North Eastern Coalfields (NEC) 
+Coal India Limited has increasingly embraced digital transformation by adopting modern 
+technologies, including automation, data analytics, Geographic Information Systems 
+(GIS), Internet of Things (IoT), Artificial Intelligence (AI), and enterprise information 
+systems to improve operational efficiency, safety, resource management, and decision-
+making across its subsidiaries. 
+Apart from its operational excellence, CIL is committed to sustainable mining practices, 
+environmental conservation, occupational safety, and corporate social responsibility. 
+Through continuous investments in technology, infrastructure, and human resource 
+development, the organization continues to strengthen its position as one of India's most 
+strategically important public sector enterprises. 
+
+=== PAGE 8 ===
+8 
+ 
+Bharat Coking Coal Limited (BCCL) 
+Bharat Coking Coal Limited (BCCL) is one of the major subsidiaries of Coal India 
+Limited (CIL), with its headquarters located in Dhanbad, Jharkhand, popularly known 
+as the Coal Capital of India. The company was incorporated in January 1972 following 
+the nationalization of coking coal mines and is primarily responsible for the mining and 
+production of high-quality coking coal from the Jharia and Raniganj coalfields, two of 
+India's most significant coal-bearing regions. 
+BCCL plays a vital role in supplying coking coal to the Indian steel industry, where it 
+serves as an essential raw material in the steel manufacturing process. In addition to 
+meeting the requirements of integrated steel plants, the company contributes significantly 
+to India's energy and industrial sectors through its extensive mining operations. 
+The organization operates numerous underground and opencast mines supported by 
+modern mining equipment, centralized monitoring systems, information technology 
+infrastructure, and dedicated operational departments. To improve productivity, safety, 
+and operational efficiency, BCCL continues to adopt digital technologies and enterprise 
+software solutions across various business functions. 
+Alongside coal production, BCCL places strong emphasis on employee welfare, mine 
+safety, environmental protection, land reclamation, and community development. The 
+company actively implements initiatives related to sustainable mining, pollution control, 
+afforestation, skill development, and corporate social responsibility to ensure balanced 
+industrial growth while minimizing environmental impact. 
+During my industrial internship, I was associated with the Systems Department of 
+BCCL, where I gained practical exposure to enterprise software systems, Artificial 
+Intelligence applications, document intelligence, and knowledge management solutions. 
+My project focused on the development of an Enterprise AI-Powered Knowledge 
+Retrieval System that enables intelligent access to official organizational documents 
+using Retrieval-Augmented Generation (RAG), Large Language Models (LLMs), 
+and prompt engineering. The internship provided valuable insight into how modern AI 
+technologies can be integrated into enterprise environments to improve information 
+accessibility, productivity, and decision-making. 
+ 
+ 
+ 
+ 
+
+=== PAGE 9 ===
+9 
+ 
+ABSTRACT 
+The rapid growth of digital information within modern organizations has significantly 
+increased the need for intelligent systems capable of retrieving accurate information from 
+large volumes of unstructured documents. Bharat Coking Coal Limited (BCCL), a 
+subsidiary of Coal India Limited, maintains numerous official documents containing 
+organizational rules, regulations, policies, and procedures. Retrieving specific 
+information from these documents through conventional manual searching is often time-
+consuming and inefficient. 
+The primary objective of this internship project was to design and develop an Enterprise 
+AI-Powered Knowledge Retrieval System capable of providing accurate and context-
+aware responses to natural language queries based on official BCCL documents. The 
+proposed solution leverages Retrieval-Augmented Generation (RAG) to combine 
+Large Language Models (LLMs) with document-based retrieval, improving response 
+reliability. 
+The system was implemented using the Botpress AI platform, where official PDF 
+documents containing the BCCL Conduct, Discipline and Appeal (CDA) Rules were 
+processed to create a searchable knowledge base. Optical Character Recognition (OCR) 
+was used where required to extract text from scanned documents. An AI workflow was 
+configured to retrieve relevant content and generate concise responses using prompt 
+engineering. Additional improvements included response formatting, UI customization, 
+and testing with real-world queries. 
+The developed system demonstrates how Artificial Intelligence can enhance enterprise 
+knowledge management by enabling quick access to information through natural 
+language interaction. It improves accessibility, reduces search time, and ensures 
+responses are based on official documents. 
+This internship provided practical exposure to Enterprise AI, Natural Language 
+Processing (NLP), Retrieval-Augmented Generation (RAG), Prompt Engineering, 
+LLMs, and OCR-based document processing, while strengthening technical and 
+problem-solving skills. 
+Keywords: Enterprise Artificial Intelligence, Retrieval-Augmented Generation (RAG), 
+Large Language Models (LLMs), Natural Language Processing (NLP), Prompt 
+Engineering, Botpress, Knowledge Retrieval, Document Intelligence, OCR, Enterprise 
+Knowledge Management, Generative AI. 
+ 
+
+=== PAGE 10 ===
+10 
+ 
+1. INTRODUCTION 
+The rapid advancement of Artificial Intelligence (AI) and Natural Language Processing 
+(NLP) has transformed the way organizations manage and access information. Modern 
+enterprises generate and maintain a vast number of digital documents containing policies, 
+regulations, operational guidelines, and administrative procedures. Although these 
+documents contain valuable information, retrieving specific content efficiently often 
+becomes a time-consuming task, especially when users are required to manually search 
+through lengthy documents. 
+Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG) have 
+emerged as powerful technologies for intelligent information retrieval. By combining 
+semantic document retrieval with generative AI, organizations can provide users with 
+accurate, context-aware, and easy-to-understand responses based on official documents. 
+During my internship at the Systems Department of Bharat Coking Coal Limited 
+(BCCL), I worked on the design and development of an Enterprise AI-Powered 
+Knowledge Retrieval System using the Botpress AI platform. The system enables 
+users to query official BCCL Conduct, Discipline and Appeal (CDA) Rules using natural 
+language and receive concise, structured, and document-grounded responses. The project 
+demonstrates the practical application of Artificial Intelligence, Retrieval-Augmented 
+Generation (RAG), Large Language Models (LLMs), OCR-based document processing, 
+and prompt engineering in improving enterprise knowledge management and information 
+accessibility. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+=== PAGE 11 ===
+11 
+ 
+1.1 Problem Statement 
+Bharat Coking Coal Limited (BCCL) maintains a large collection of official documents 
+containing employee conduct rules, disciplinary procedures, organizational policies, and 
+administrative regulations. These documents play a crucial role in the day-to-day 
+functioning of the organization and are frequently referred to by employees and 
+administrative staff. Although these documents are available in digital format, retrieving 
+specific information from them remains a challenging and time-consuming task due to 
+their length and complex structure. 
+The existing approach primarily relies on manual document browsing or conventional 
+keyword-based searches. Such methods require users to know the exact terminology or 
+section in which the required information is available. As a result, employees often spend 
+considerable time searching through multiple pages before locating the relevant rule or 
+procedure. Furthermore, scanned documents cannot be searched directly without 
+appropriate text extraction techniques, limiting the effectiveness of digital document 
+management. 
+With the advancement of Artificial Intelligence and Natural Language Processing (NLP), 
+it has become possible to develop intelligent systems capable of understanding user 
+queries expressed in natural language. Retrieval-Augmented Generation (RAG) further 
+enhances this capability by retrieving relevant information from official documents 
+before generating responses, ensuring that answers remain accurate, context-aware, and 
+grounded in authentic organizational knowledge. 
+Therefore, there is a need for an Enterprise AI-powered Knowledge Retrieval System that 
+can process official BCCL documents, understand user queries, retrieve relevant 
+information, and generate concise and reliable responses. Such a system can significantly 
+reduce search time, improve information accessibility, and enhance overall operational 
+efficiency within the organization. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+=== PAGE 12 ===
+12 
+ 
+1.2 Objectives 
+The primary objective of this internship project is to design and develop an Enterprise 
+AI-Powered Knowledge Retrieval System that enables efficient access to information 
+available in official BCCL documents through natural language interaction. The system 
+aims to simplify document searching by allowing users to ask questions in conversational 
+language and receive accurate, structured, and context-aware responses. 
+To achieve this objective, the project focuses on processing official PDF documents to 
+create a searchable knowledge base and implementing Retrieval-Augmented Generation 
+(RAG) to improve the reliability of AI-generated responses. The system also incorporates 
+OCR techniques for handling scanned documents, prompt engineering for generating 
+well-structured answers, and a user-friendly chatbot interface to enhance accessibility. 
+Another important objective is to demonstrate the practical application of Artificial 
+Intelligence, Large Language Models (LLMs), and enterprise knowledge management in 
+solving real-world organizational challenges. Finally, the developed system is evaluated 
+using multiple real-world queries to assess its accuracy, response quality, and overall 
+effectiveness in improving information retrieval within Bharat Coking Coal Limited. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+=== PAGE 13 ===
+13 
+ 
+2. SYSTEM ANALYSIS 
+2.1 Existing System 
+Before the development of the proposed solution, information retrieval from official 
+BCCL documents was primarily carried out through manual document searching. 
+Employees had to refer to lengthy PDF documents containing the Conduct, Discipline 
+and Appeal (CDA) Rules, organizational policies, administrative circulars, and 
+procedural guidelines whenever clarification regarding a particular rule or regulation was 
+required. 
+Although these documents were available in digital format, accessing specific 
+information was often difficult due to their large size and complex structure. Users were 
+required to manually browse through numerous pages or use conventional keyword 
+search functionality provided by PDF readers. This approach depended heavily on the 
+user's familiarity with the document structure and the exact terminology used within the 
+document. 
+For example, if an employee wanted information regarding suspension procedures or 
+disciplinary penalties, they first needed to identify the appropriate document and then 
+manually search for the relevant section. If different terminology was used in the search 
+query, the required information might not be located efficiently. This increased the time 
+required for information retrieval and reduced overall productivity. 
+Another challenge involved scanned PDF documents. Since scanned files contain images 
+rather than machine-readable text, conventional search methods cannot directly retrieve 
+information unless Optical Character Recognition (OCR) techniques are first applied. 
+Consequently, users often faced additional difficulties while searching through scanned 
+documents. 
+Overall, the traditional approach lacked intelligence, contextual understanding, and 
+conversational interaction. It required significant manual effort and did not provide 
+concise or user-friendly responses to employee queries. 
+2.2 Limitations of the Existing System 
+The existing document retrieval process suffers from several limitations that affect both 
+efficiency and user experience. 
+Firstly, manual searching through lengthy policy documents is time-consuming and often 
+delays access to important information. Employees may need to examine multiple pages 
+before locating the required rule or regulation. 
+
+=== PAGE 14 ===
+14 
+ 
+Secondly, traditional keyword-based searching depends on exact word matching. If users 
+are unfamiliar with the terminology used in the official documents or phrase their queries 
+differently, relevant information may not be retrieved successfully. 
+Another limitation is the inability to efficiently search scanned PDF documents without 
+OCR processing. Valuable information contained in scanned documents remains 
+inaccessible to conventional search techniques. 
+Furthermore, the existing system does not understand the context or intent of user 
+queries. Instead of providing summarized answers, users are required to interpret lengthy 
+paragraphs manually, increasing the possibility of misunderstanding official rules. 
+These limitations highlight the necessity of adopting an intelligent document retrieval 
+system capable of understanding natural language queries and providing accurate, 
+document-grounded responses. 
+2.3 Proposed System 
+To overcome the limitations of conventional document searching, an Enterprise AI-
+Powered Knowledge Retrieval System was developed using the Botpress AI platform. 
+The proposed system enables users to interact with official BCCL documents through 
+natural language instead of traditional keyword-based searching. 
+The system utilizes Retrieval-Augmented Generation (RAG), where relevant information 
+is first retrieved from an indexed knowledge base before a Large Language Model 
+generates the final response. This ensures that answers remain grounded in official BCCL 
+documents while reducing the possibility of inaccurate or fabricated information. 
+Official PDF documents containing the Conduct, Discipline and Appeal (CDA) Rules are 
+uploaded to the knowledge base. OCR techniques are applied wherever required to 
+extract textual information from scanned documents. The processed documents are 
+indexed, allowing semantic retrieval based on the meaning of user queries rather than 
+exact keyword matching. 
+Prompt engineering techniques are employed to ensure that responses are concise, 
+professional, and well-structured. The chatbot is also customized with an intuitive user 
+interface to provide a better user experience. Users can simply enter their questions in 
+conversational language and receive relevant answers without manually browsing lengthy 
+documents. 
+The proposed system demonstrates the practical application of Artificial Intelligence, 
+Natural Language Processing, and Enterprise Knowledge Management for improving 
+information accessibility within Bharat Coking Coal Limited. 
+
+=== PAGE 15 ===
+15 
+ 
+ 
+2.4 Advantages of the Proposed System 
+The proposed AI-powered knowledge retrieval system offers several advantages over 
+conventional document searching. 
+• 
+Provides quick and efficient access to official BCCL documents. 
+• 
+Supports natural language queries instead of exact keyword matching. 
+• 
+Retrieves contextually relevant information using semantic search. 
+• 
+Generates concise and easy-to-understand responses. 
+• 
+Reduces manual effort and document searching time. 
+• 
+Improves employee productivity by providing faster access to organizational 
+knowledge. 
+• 
+Supports OCR-enabled document processing for scanned PDF files. 
+• 
+Provides a scalable platform that can be extended to additional organizational 
+documents in the future. 
+• 
+Enhances user experience through a simple and interactive chatbot interface. 
+• 
+Ensures responses remain grounded in official documents through Retrieval-
+Augmented Generation (RAG), improving reliability and reducing incorrect 
+information. 
+The implementation of this system demonstrates how Artificial Intelligence can 
+modernize enterprise knowledge management by making organizational information 
+more accessible, efficient, and user-friendly. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+=== PAGE 16 ===
+16 
+ 
+3. SYSTEM ARCHITECTURE 
+3.1 Overall System Architecture 
+The Enterprise AI-Powered Knowledge Retrieval System is designed using a modular 
+architecture that integrates document processing, intelligent information retrieval, and 
+Large Language Model (LLM)-based response generation. The architecture enables users 
+to interact with official BCCL documents through a conversational interface while 
+ensuring that responses are generated only after retrieving relevant information from the 
+organization's knowledge base. 
+The system consists of several interconnected components, each responsible for a specific 
+task. Initially, official BCCL documents, including the Conduct, Discipline and Appeal 
+(CDA) Rules, are uploaded to the knowledge base. If a document is scanned, Optical 
+Character Recognition (OCR) is applied to extract machine-readable text. The extracted 
+content is then indexed to facilitate efficient semantic retrieval. 
+Users interact with the system through the Botpress webchat interface by submitting 
+queries in natural language. The Botpress Autonomous Node interprets the query and 
+searches the indexed knowledge base to retrieve the most relevant document chunks. 
+These retrieved sections are provided as contextual information to the Large Language 
+Model, which generates a concise, structured, and context-aware response using carefully 
+designed prompt engineering techniques. 
+Finally, the generated response is presented to the user through the chatbot interface, 
+enabling quick and efficient access to official organizational information. 
+ 
+
+=== PAGE 17 ===
+17 
+ 
+3.2 System Workflow 
+The workflow begins when the administrator uploads official BCCL documents to the 
+knowledge base. During document processing, OCR is applied wherever necessary to 
+extract textual information from scanned files. The processed documents are indexed to 
+support semantic retrieval. 
+Whenever a user submits a question through the chatbot interface, the Botpress 
+Autonomous Node processes the query and retrieves the most relevant document sections 
+from the knowledge base. The retrieved content is then supplied to the Large Language 
+Model using Retrieval-Augmented Generation (RAG), allowing the model to generate 
+responses based on official documents rather than relying solely on its pre-trained 
+knowledge. 
+The generated response is formatted into concise bullet points and presented to the user. 
+This workflow ensures accurate, reliable, and document-grounded responses while 
+significantly reducing the time required to search through lengthy organizational 
+documents. 
+ 
+ 
+ 
+ 
+ 
+
+=== PAGE 18 ===
+18 
+ 
+3.3 System Components 
+The proposed system is composed of multiple functional components that work together 
+to provide intelligent information retrieval. 
+User Interface: 
+Provides an interactive webchat interface through which users can submit queries in 
+natural language. 
+Botpress Platform: 
+Acts as the core conversational AI framework responsible for processing user queries and 
+managing the chatbot workflow. 
+Knowledge Base: 
+Stores indexed BCCL documents and enables semantic retrieval of relevant information. 
+OCR Module: 
+Extracts textual information from scanned PDF documents before indexing. 
+Autonomous Node: 
+Analyzes user queries, retrieves relevant document sections, and coordinates interaction 
+with the Large Language Model. 
+Large Language Model (LLM): 
+Generates concise, professional, and context-aware responses using the retrieved 
+document content. 
+Response Formatter: 
+Organizes the generated response into a structured format using headings and bullet 
+points before presenting it to the user. 
+        
+ 
+
+=== PAGE 19 ===
+19 
+ 
+4. TECHNOLOGIES USED 
+The development of the Enterprise AI-Powered Knowledge Retrieval System involved 
+the integration of several Artificial Intelligence and software technologies. These 
+technologies work together to process organizational documents, retrieve relevant 
+information, and generate accurate responses to user queries. The major technologies 
+used in the project are described below. 
+4.1 Artificial Intelligence (AI) 
+Artificial Intelligence (AI) refers to the simulation of human intelligence by computer 
+systems, enabling them to perform tasks such as understanding language, reasoning, 
+decision-making, and problem-solving. Modern AI systems are capable of analyzing 
+large volumes of information and generating meaningful responses based on learned 
+knowledge. 
+In this project, Artificial Intelligence forms the foundation of the proposed system. AI 
+enables the chatbot to understand user queries expressed in natural language, retrieve 
+relevant information from official BCCL documents, and generate structured responses. 
+Instead of relying on predefined rules or keyword matching, the AI-powered system 
+provides intelligent and context-aware assistance, making information retrieval faster and 
+more efficient. 
+ 
+4.2 Natural Language Processing (NLP) 
+Natural Language Processing (NLP) is a branch of Artificial Intelligence that enables 
+computers to understand, interpret, and generate human language. NLP allows users to 
+interact with software using everyday language instead of predefined commands. 
+The chatbot developed during this internship uses NLP to interpret user questions and 
+identify the intent behind each query. Users can ask questions in different ways without 
+needing to know the exact terminology used in official documents. This significantly 
+improves usability compared to traditional keyword-based document searching and 
+provides a more natural interaction experience. 
+ 
+ 
+ 
+ 
+
+=== PAGE 20 ===
+20 
+ 
+4.3 Large Language Models (LLMs) 
+Large Language Models (LLMs) are advanced AI models trained on massive text 
+datasets to understand language patterns and generate human-like responses. These 
+models possess strong capabilities in language understanding, summarization, question 
+answering, and text generation. 
+The proposed system utilizes an LLM through the Botpress AI platform to generate 
+responses based on the information retrieved from official BCCL documents. Rather than 
+generating answers solely from pre-trained knowledge, the model receives contextual 
+information from the knowledge base before producing the final response. This approach 
+improves both the relevance and reliability of the generated answers. 
+ 
+4.4 Retrieval-Augmented Generation (RAG) 
+Retrieval-Augmented Generation (RAG) is an AI technique that combines information 
+retrieval with Large Language Models to improve the accuracy of generated responses. 
+Instead of relying only on the model's internal knowledge, RAG first retrieves relevant 
+information from a trusted knowledge source and then uses that information to generate 
+the final response. 
+In this project, RAG plays a central role in ensuring that chatbot responses remain 
+grounded in official BCCL documents. When a user submits a query, the system retrieves 
+the most relevant sections from the indexed knowledge base and supplies them to the 
+language model. This approach minimizes hallucinations, improves factual accuracy, and 
+ensures that responses are based on authentic organizational information. 
+ 
+4.5 Botpress AI Platform 
+Botpress is an enterprise conversational AI platform that enables developers to build 
+intelligent chatbots with minimal coding effort. It provides features such as workflow 
+automation, knowledge base integration, AI-powered autonomous nodes, prompt 
+configuration, and webchat deployment. 
+The Botpress platform was used as the primary development environment for this project. 
+Official BCCL documents were uploaded to the Botpress Knowledge Base, where they 
+were indexed for semantic retrieval. The Autonomous Node was configured with custom 
+instructions to retrieve relevant document content and generate concise, structured 
+responses. The chatbot was then deployed using Botpress Webchat, providing users with 
+an interactive interface for accessing organizational information. 
+
+=== PAGE 21 ===
+21 
+ 
+ 
+4.6 Optical Character Recognition (OCR) 
+Optical Character Recognition (OCR) is a document processing technology used to 
+convert scanned images or image-based PDF documents into machine-readable text. 
+OCR enables search engines and AI systems to process documents that would otherwise 
+be inaccessible. 
+During the development of the knowledge base, OCR was used wherever necessary to 
+extract textual information from scanned PDF documents before indexing. This ensured 
+that both digitally generated PDFs and scanned documents could be included in the 
+knowledge base, improving the overall coverage of the system. 
+ 
+4.7 Prompt Engineering 
+Prompt Engineering is the process of designing and optimizing instructions provided to a 
+Large Language Model to improve the quality, consistency, and accuracy of generated 
+responses. 
+In this project, prompt engineering was used to configure the Botpress Autonomous 
+Node. The chatbot was instructed to retrieve information only from the uploaded 
+knowledge base, generate concise responses, avoid copying large paragraphs directly, 
+and present information using headings and bullet points. Additional prompts were 
+designed to encourage professional language, mention rule numbers whenever available, 
+and politely guide users after each response. 
+ 
+4.8 Knowledge Base 
+A Knowledge Base is a centralized repository that stores documents and information for 
+intelligent retrieval. Instead of relying on static question-answer pairs, modern AI 
+systems retrieve relevant document sections dynamically from the knowledge base before 
+generating responses. 
+The knowledge base created for this project contains the official BCCL Conduct, 
+Discipline and Appeal (CDA) Rules in PDF format. Once uploaded, the documents were 
+processed, indexed, and made searchable through semantic retrieval. This allows the 
+chatbot to locate relevant information based on the meaning of user queries rather than 
+exact keyword matches, resulting in more accurate and context-aware responses. 
+ 
+
+=== PAGE 22 ===
+22 
+ 
+5. SYSTEM IMPLEMENTATION 
+5.1 Overview 
+The implementation of the Enterprise AI-Powered Knowledge Retrieval System 
+developed during the internship at Bharat Coking Coal Limited (BCCL). The system was 
+designed to enable users to retrieve information from official BCCL documents using 
+natural language queries through an intelligent chatbot interface. 
+The implementation was carried out using the Botpress AI platform, where official 
+BCCL Conduct, Discipline and Appeal (CDA) Rules were uploaded to a centralized 
+Knowledge Base. The system employs Retrieval-Augmented Generation (RAG) to 
+retrieve relevant document content before generating responses using a Large Language 
+Model (LLM). Optical Character Recognition (OCR) was utilized for processing 
+scanned documents, while Prompt Engineering was applied to improve the quality and 
+consistency of chatbot responses. In addition, CSS customization was performed to 
+enhance the appearance and user experience of the chatbot interface. 
+The implementation process included knowledge base creation, chatbot workflow 
+configuration, autonomous node setup, response optimization, interface customization, 
+testing, and deployment. Each stage of the implementation is discussed in the following 
+sections. 
+5.2 Bot Creation and Initial Configuration 
+The implementation of the project began with the creation of a new chatbot using the 
+Botpress Cloud platform. A dedicated bot named BCCL Rules Assistant was created to 
+serve as an AI-powered assistant for retrieving information from official BCCL 
+documents. Botpress was selected because of its support for Large Language Models 
+(LLMs), Retrieval-Augmented Generation (RAG), knowledge base integration, workflow 
+automation, and web-based deployment. 
+After creating the bot, the initial project settings were configured, including the bot name, 
+description, and AI model. The chatbot workflow was then designed using Botpress 
+Studio, where different nodes were organized to manage user interactions and process 
+queries efficiently. The Autonomous Node was selected as the primary processing 
+component, allowing the chatbot to understand user queries, retrieve relevant information 
+from the knowledge base, and generate context-aware responses. 
+This initial configuration established the foundation for the subsequent stages of 
+development, including knowledge base integration, prompt engineering, interface 
+customization, testing, and deployment. 
+
+=== PAGE 23 ===
+23 
+ 
+ 
+Figure 5.1: Botpress Dashboard Showing the Created BCCL Rules Assistant 
+5.3 Knowledge Base Creation 
+The Knowledge Base serves as the core repository of the proposed Enterprise AI-
+Powered Knowledge Retrieval System. It contains the official BCCL documents that are 
+used by the chatbot to retrieve relevant information while answering user queries. During 
+the implementation phase, the Conduct, Discipline and Appeal (CDA) Rules and other 
+relevant organizational documents were uploaded to the Botpress Knowledge Base. 
+Once the documents were uploaded, Botpress automatically processed and indexed their 
+contents to enable semantic search. For scanned PDF documents, Optical Character 
+Recognition (OCR) was applied to extract machine-readable text before indexing. The 
+processed documents were then divided into smaller searchable segments, commonly 
+referred to as chunks, allowing the system to retrieve only the most relevant portions of 
+the document instead of searching the entire file. 
+The indexed knowledge base enables the chatbot to understand the context of user 
+queries and retrieve the most relevant document sections before generating a response. 
+This approach improves the accuracy of the answers while ensuring that the information 
+is derived from official BCCL documents. As a result, users can obtain reliable and 
+document-grounded responses without manually searching through lengthy PDF files. 
+ 
+Figure 5.2: Knowledge Base with Uploaded and Indexed BCCL Documents 
+
+=== PAGE 24 ===
+24 
+ 
+After processing, the uploaded documents were successfully divided into multiple 
+searchable chunks, enabling efficient semantic retrieval and faster response generation. 
+5.4 Autonomous Node Configuration 
+The Autonomous Node acts as the central processing unit of the chatbot and is 
+responsible for understanding user queries, retrieving relevant information from the 
+knowledge base, and generating appropriate responses. Unlike traditional rule-based 
+chatbots that rely on predefined conversation flows, the Autonomous Node uses Artificial 
+Intelligence to dynamically interpret user intent and respond based on the information 
+available in the uploaded BCCL documents. 
+To improve the quality and consistency of responses, custom instructions were provided 
+to the Autonomous Node through prompt engineering. The node was configured to 
+always search the uploaded knowledge base before generating a response, summarize 
+retrieved information instead of copying large paragraphs, present answers using 
+headings and bullet points, mention rule numbers whenever available, and respond 
+professionally. If the requested information was not found in the uploaded documents, the 
+chatbot was instructed to inform the user accordingly instead of generating unsupported 
+information. 
+This configuration enabled the chatbot to provide concise, accurate, and document-
+grounded responses while maintaining a consistent response format. The Autonomous 
+Node significantly enhanced the chatbot's ability to answer a wide range of rule-related 
+queries in a natural and user-friendly manner. 
+ 
+Figure 5.3: Configuration of the Autonomous Node with Custom AI Instructions 
+ 
+ 
+ 
+
+=== PAGE 25 ===
+25 
+ 
+5.5 Prompt Engineering 
+Prompt Engineering played a significant role in improving the quality, consistency, and 
+reliability of the chatbot's responses. Since the chatbot utilizes a Large Language Model 
+(LLM), carefully designed instructions were provided to guide its behavior and ensure 
+that responses remained accurate, professional, and based on official BCCL documents. 
+The prompt was configured to instruct the chatbot to always retrieve information from 
+the uploaded Knowledge Base before generating a response. It was also designed to 
+summarize retrieved content instead of copying lengthy paragraphs directly from the 
+documents. To improve readability, responses were formatted using clear headings and 
+bullet points, while rule numbers were included whenever available. Additionally, the 
+chatbot was instructed to respond professionally, avoid generating unsupported 
+information, and inform the user whenever the requested information could not be found 
+in the available documents. 
+Several iterations of prompt refinement were carried out during the implementation 
+process to improve response quality and maintain consistency across different user 
+queries. These refinements helped the chatbot generate more structured, context-aware, 
+and user-friendly responses while ensuring that the information remained grounded in the 
+official BCCL knowledge base. 
+ 
+Figure 5.4: Custom Prompt Used for Response Generation 
+ 
+ 
+
+=== PAGE 26 ===
+26 
+ 
+5.6 User Interface Customization 
+To provide a better user experience, the default Botpress Webchat interface was 
+customized using Cascading Style Sheets (CSS). The primary objective of the 
+customization was to create a modern, professional, and visually appealing interface that 
+aligns with the enterprise environment of Bharat Coking Coal Limited (BCCL). 
+Several interface elements were modified, including the chatbot header, typography, 
+message containers, buttons, input field, color scheme, border radius, spacing, and overall 
+layout. A clean dark theme with carefully selected accent colors was implemented to 
+improve readability and provide a consistent visual experience. The typography was also 
+refined using modern fonts, ensuring that chatbot responses remained clear and easy to 
+read. 
+These customizations enhanced both the appearance and usability of the chatbot while 
+maintaining a professional look suitable for an organizational application. The improved 
+interface provides users with a more intuitive and engaging interaction experience 
+without affecting the chatbot's core functionality. 
+ 
+Figure 5.5: Customized Botpress Webchat Interface 
+
+=== PAGE 27 ===
+27 
+ 
+5.7 Testing and Validation 
+After the implementation was completed, the chatbot was tested using a variety of queries 
+based on the official BCCL Conduct, Discipline and Appeal (CDA) Rules. The primary 
+objective of testing was to verify that the system could accurately retrieve relevant 
+information from the knowledge base and generate clear, concise, and context-aware 
+responses. 
+The chatbot was evaluated using different categories of questions, including employee 
+conduct, disciplinary actions, suspension procedures, penalties, appeal provisions, and 
+other rule-related topics. The generated responses were compared with the corresponding 
+sections of the official documents to ensure correctness and consistency. Testing also 
+included queries phrased in different ways to evaluate the chatbot's ability to understand 
+natural language and retrieve relevant information through semantic search. 
+The results demonstrated that the chatbot was able to provide reliable and well-structured 
+responses for the majority of queries. Minor improvements were made during the testing 
+phase by refining prompt instructions and updating chatbot configurations to enhance 
+response quality and maintain consistency. Overall, the testing process confirmed that the 
+developed system successfully improved information retrieval from official BCCL 
+documents while providing a simple and user-friendly interaction experience. 
+ 
+Figure 5.6: Sample Conversation Demonstrating Successful Information Retrieval 
+ 
+
+=== PAGE 28 ===
+28 
+ 
+Test 
+Case 
+User Query 
+Expected Result 
+Status 
+TC-
+01 
+What are the rules for suspension? 
+Correct suspension rule displayed 
+Pass 
+TC-
+02 
+Explain major penalties. 
+Major penalties retrieved from 
+CDA Rules 
+Pass 
+TC-
+03 
+What constitutes misconduct? 
+Relevant misconduct provisions 
+displayed 
+Pass 
+TC-
+04 
+Can an employee appeal a penalty? 
+Appeal procedure explained 
+Pass 
+TC-
+05 
+What happens if information is 
+unavailable? 
+Chatbot informs user 
+appropriately 
+Pass 
+ 
+5.8 Deployment 
+After successful implementation and testing, the chatbot was deployed using the 
+Botpress Cloud Platform to make it accessible through a web-based interface. Botpress 
+provides a built-in deployment mechanism that allows the chatbot to be published with 
+minimal configuration while ensuring that the latest workflow, knowledge base, and AI 
+settings are available to end users. 
+Before deployment, the chatbot was thoroughly verified to ensure that the knowledge 
+base had been successfully indexed, the Autonomous Node was functioning correctly, 
+and the prompt configurations were producing accurate responses. The customized user 
+interface was also reviewed to ensure a consistent and professional user experience. 
+Once the verification process was completed, the chatbot was published and a shareable 
+webchat link was generated. The deployed version was tested by submitting multiple 
+real-world queries to confirm that it correctly retrieved information from the official 
+BCCL documents and generated context-aware responses. The successful deployment 
+demonstrated that the developed system could be effectively used as an AI-powered 
+knowledge assistant for retrieving organizational information through natural language 
+interaction. 
+
+=== PAGE 29 ===
+29 
+ 
+ 
+ 
+Figure 5.7: Deployed Enterprise AI-Powered Knowledge Retrieval System 
+ 
+6. RESULTS AND DISCUSSION 
+6.1 Results 
+The Enterprise AI-Powered Knowledge Retrieval System was successfully implemented 
+and deployed using the Botpress AI platform. The developed chatbot was capable of 
+retrieving information from official BCCL Conduct, Discipline and Appeal (CDA) Rules 
+by understanding user queries expressed in natural language. The integration of 
+Retrieval-Augmented Generation (RAG) enabled the system to retrieve relevant 
+document content before generating responses, ensuring that the answers remained 
+grounded in official organizational documents. 
+During testing, the chatbot successfully answered queries related to employee conduct, 
+disciplinary procedures, suspension, penalties, appeal provisions, and other rule-based 
+topics. Responses were generated in a structured format using headings and bullet points, 
+making the information easier to understand and improving the overall user experience. 
+The customized chatbot interface, combined with prompt engineering and semantic 
+document retrieval, provided an efficient and user-friendly solution for accessing 
+organizational information. The deployed system demonstrated consistent performance 
+across multiple test scenarios and significantly reduced the time required to locate 
+relevant rules compared to manual document searching. 
+
+=== PAGE 30 ===
+30 
+ 
+6.2 Sample Results 
+The chatbot was tested with various rule-based queries to evaluate its ability to retrieve 
+accurate information from the uploaded knowledge base. Some representative test cases 
+are shown below. 
+ 
+Figure 6.1: Chatbot Response for Suspension Rules 
+ 
+ 
+Figure 6.2: Chatbot Response for Employee Conduct Rules 
+
+=== PAGE 31 ===
+31 
+ 
+The responses generated by the chatbot were compared with the corresponding sections 
+of the official BCCL documents to verify their correctness. The chatbot consistently 
+provided concise and context-aware answers while maintaining a professional response 
+format. 
+6.3 Discussion 
+The developed system demonstrates how modern Artificial Intelligence techniques can 
+improve enterprise knowledge management by simplifying access to organizational 
+documents. Unlike traditional keyword-based search methods, the chatbot allows users to 
+ask questions in natural language and retrieves relevant information using semantic 
+search. This significantly improves information accessibility and reduces the effort 
+required to manually search through lengthy PDF documents. 
+The use of Retrieval-Augmented Generation (RAG) further enhanced the reliability of 
+responses by ensuring that answers were generated using the retrieved document content 
+rather than relying solely on the knowledge of the language model. Prompt engineering 
+also contributed to improving response quality by enforcing structured formatting, 
+professional language, and concise summaries. 
+Although the chatbot performed well for the uploaded documents, its effectiveness 
+depends on the quality and completeness of the knowledge base. Future enhancements 
+such as multilingual support, integration with additional organizational documents, and 
+role-based access control can further improve the capabilities of the system. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+=== PAGE 32 ===
+32 
+ 
+7. CHALLENGES FACED, FUTURE SCOPE AND 
+CONCLUSION 
+7.1 Challenges Faced 
+During the development of the Enterprise AI-Powered Knowledge Retrieval System, 
+several technical and implementation-related challenges were encountered. These 
+challenges provided valuable learning opportunities and contributed to improving the 
+overall quality of the chatbot. 
+One of the primary challenges was processing PDF documents for the knowledge base. 
+Some documents were scanned copies, making them difficult to search directly. Optical 
+Character Recognition (OCR) was required to extract machine-readable text before the 
+documents could be indexed for semantic retrieval. 
+Another challenge involved configuring the chatbot to generate accurate and concise 
+responses. Initially, the chatbot occasionally produced lengthy outputs or responses that 
+were not properly structured. This issue was addressed through prompt engineering by 
+providing clear instructions to summarize information, use bullet points, mention rule 
+numbers where available, and maintain a professional tone. 
+The knowledge base indexing process also required careful validation to ensure that 
+uploaded documents were processed successfully before the chatbot could retrieve 
+information. During testing, multiple iterations of prompt refinement and chatbot 
+configuration were performed to improve response quality and maintain consistency 
+across different user queries. 
+In addition, customizing the Botpress web interface required modifications to the default 
+CSS styles to create a more professional and user-friendly appearance suitable for an 
+enterprise application. These challenges collectively enhanced the understanding of 
+enterprise AI systems, conversational AI, and knowledge management technologies. 
+ 
+ 
+ 
+ 
+ 
+ 
+
+=== PAGE 33 ===
+33 
+ 
+ 
+ 
+7.2 Future Scope 
+The developed Enterprise AI-Powered Knowledge Retrieval System provides a strong 
+foundation for AI-assisted document retrieval within Bharat Coking Coal Limited. 
+Although the current implementation successfully retrieves information from the official 
+CDA Rules, several enhancements can be incorporated in future versions. 
+The knowledge base can be expanded by integrating additional organizational documents 
+such as HR policies, safety manuals, circulars, standard operating procedures, and 
+technical guidelines. This would enable the chatbot to answer a broader range of 
+employee queries. 
+The system can also be enhanced by supporting multilingual interactions, allowing users 
+to communicate in both English and Hindi. Voice-based interaction using speech 
+recognition and text-to-speech technologies can further improve accessibility, especially 
+for field personnel. 
+Future improvements may also include role-based access control, integration with 
+internal organizational portals, analytics dashboards for monitoring chatbot usage, and 
+continuous knowledge base updates. These enhancements would transform the chatbot 
+into a comprehensive enterprise knowledge management solution capable of supporting 
+various organizational departments. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+=== PAGE 34 ===
+34 
+ 
+ 
+7.3 Conclusion 
+The internship at Bharat Coking Coal Limited provided valuable exposure to the practical 
+application of Artificial Intelligence in solving real-world enterprise challenges. The 
+project successfully demonstrated the development of an Enterprise AI-Powered 
+Knowledge Retrieval System capable of retrieving information from official 
+organizational documents using Retrieval-Augmented Generation (RAG), Large 
+Language Models (LLMs), and the Botpress AI platform. 
+The developed chatbot enables users to access organizational information through natural 
+language queries, eliminating the need for time-consuming manual searches through 
+lengthy PDF documents. By combining semantic retrieval, prompt engineering, OCR, 
+and a well-structured conversational interface, the system delivers concise, reliable, and 
+document-grounded responses while improving the overall user experience. 
+This internship enhanced my understanding of Enterprise AI, Natural Language 
+Processing, conversational AI, prompt engineering, and knowledge management systems. 
+It also provided practical experience in chatbot development, system implementation, 
+testing, deployment, and user interface customization. Overall, the internship served as an 
+excellent learning opportunity by bridging the gap between academic knowledge and 
+industrial application, while demonstrating the growing impact of Artificial Intelligence 
+in enterprise information management. 
+8. REFERENCES 
+• 
+Bharat Coking Coal Limited (BCCL). Conduct, Discipline and Appeal (CDA) 
+Rules. Official BCCL Document, Bharat Coking Coal Limited, Dhanbad.  
+• 
+Botpress : Botpress Documentation. Available at: https://botpress.com/docs 
+• 
+Coal India Limited. Official Website. Available at: https://www.coalindia.in  
+• 
+Lewis, Patrick, Perez, Ethan, Piktus, Aleksandra, et al. (2020). Retrieval-
+Augmented Generation for Knowledge-Intensive NLP Tasks. Advances in 
+Neural Information Processing Systems (NeurIPS 2020).  
+ 
