@@ -18,6 +18,7 @@ from backend.app.api.documents import router as documents_router
 from backend.app.api.chat import router as chat_router, conversations_router
 from backend.app.api.admin import router as admin_router
 from backend.app.api.feedback import router as feedback_router
+from backend.app.api.voice import router as voice_router
 
 def init_db_and_seed():
     """Initializes tables, seeds default users and initial BCCL CDA knowledge documents."""
@@ -29,11 +30,12 @@ def init_db_and_seed():
         # 1. Seed Admin User
         admin = db.query(User).filter(User.username == "admin").first()
         if not admin:
-            logger.info("Creating default admin account (admin / admin123)...")
+            admin_pwd = os.environ.get("ADMIN_DEFAULT_PASSWORD", "admin123")
+            logger.info("Initializing system administrator account (admin)...")
             admin = User(
                 username="admin",
                 email="admin@bccl.gov.in",
-                hashed_password=get_password_hash("admin123"),
+                hashed_password=get_password_hash(admin_pwd),
                 role="admin",
                 full_name="System Administrator (BCCL Systems Dept)",
                 department="Systems Department",
@@ -46,11 +48,12 @@ def init_db_and_seed():
         # 2. Seed Standard User
         user = db.query(User).filter(User.username == "user").first()
         if not user:
-            logger.info("Creating default employee user account (user / user123)...")
+            user_pwd = os.environ.get("USER_DEFAULT_PASSWORD", "user123")
+            logger.info("Initializing standard employee user account (user)...")
             user = User(
                 username="user",
                 email="employee@bccl.gov.in",
-                hashed_password=get_password_hash("user123"),
+                hashed_password=get_password_hash(user_pwd),
                 role="user",
                 full_name="BCCL Mining Executive",
                 department="Operations",
@@ -81,6 +84,28 @@ def init_db_and_seed():
                 pipeline = IngestionPipeline(db)
                 pipeline.process_document(doc.id)
 
+        # 4. Seed BCCL_Rules knowledge base from new_data if not yet present
+        new_data_pdf = os.path.join(settings.BASE_DIR, "new_data", "CDA_Rules_1978_amended_upto_July_2006_10052018-ocr.pdf")
+        if os.path.exists(new_data_pdf):
+            bccl_doc = db.query(Document).filter(Document.knowledge_base == "BCCL_Rules").first()
+            if not bccl_doc:
+                logger.info("Auto-ingesting new_data BCCL_Rules into Knowledge Base...")
+                bccl_doc = Document(
+                    title="BCCL Conduct, Discipline & Appeal Rules, 1978 (Amended upto July 2006)",
+                    filename="CDA_Rules_1978_amended_upto_July_2006_10052018-ocr.pdf",
+                    file_path=new_data_pdf,
+                    file_size=os.path.getsize(new_data_pdf),
+                    mime_type="application/pdf",
+                    status="UPLOADED",
+                    knowledge_base="BCCL_Rules",
+                    uploaded_by=admin.id if admin else 1
+                )
+                db.add(bccl_doc)
+                db.commit()
+                db.refresh(bccl_doc)
+                pipeline = IngestionPipeline(db)
+                pipeline.process_document(bccl_doc.id)
+
     except Exception as e:
         logger.error(f"Database initialization and seeding error: {e}", exc_info=True)
     finally:
@@ -105,10 +130,17 @@ app = FastAPI(
 # Attach Rate Limiting Middleware
 app.add_middleware(RateLimiterMiddleware, requests_per_minute=settings.RATE_LIMIT_PER_MINUTE)
 
-# Configure CORS
+# Configure CORS (merging local defaults and production FRONTEND_URL)
+cors_origins = list(settings.ALLOWED_ORIGINS)
+if settings.FRONTEND_URL:
+    for u in settings.FRONTEND_URL.split(","):
+        clean_u = u.strip().rstrip("/")
+        if clean_u and clean_u not in cors_origins:
+            cors_origins.append(clean_u)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.ALLOWED_ORIGINS,
+    allow_origins=cors_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -121,6 +153,7 @@ app.include_router(chat_router)
 app.include_router(conversations_router)
 app.include_router(admin_router)
 app.include_router(feedback_router)
+app.include_router(voice_router)
 
 @app.get("/")
 def root():

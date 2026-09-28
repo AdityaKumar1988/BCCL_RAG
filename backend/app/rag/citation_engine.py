@@ -27,6 +27,7 @@ class CitationEngine:
                 chunk_id=chunk.id,
                 document_id=chunk.document_id,
                 document_name=doc_title,
+                knowledge_base=getattr(chunk, "knowledge_base", None) or (chunk.document.knowledge_base if chunk.document else "BCCL_Rules"),
                 page_number=chunk.page_number,
                 rule_number=chunk.rule_number,
                 section_title=chunk.section_title,

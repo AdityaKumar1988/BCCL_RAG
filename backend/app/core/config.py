@@ -17,6 +17,7 @@ class Settings(BaseSettings):
     SECRET_KEY: str = "bccl-enterprise-rag-secret-key-super-secure-change-in-prod"
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24  # 24 hours
+    FRONTEND_URL: Optional[str] = None
     ALLOWED_ORIGINS: List[str] = [
         "http://localhost:3000",
         "http://localhost:8000",
@@ -39,6 +40,10 @@ class Settings(BaseSettings):
     EMBEDDING_PROVIDER: str = "auto"  # auto, local, gemini, openai
     OCR_PROVIDER: str = "tesseract"
     TESSERACT_CMD: str = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+
+    # Speech Recognition Engine
+    WHISPER_MODEL: str = "base"
+    WHISPER_LANGUAGE: str = "en"
 
     # API Keys
     GEMINI_API_KEY: Optional[str] = None

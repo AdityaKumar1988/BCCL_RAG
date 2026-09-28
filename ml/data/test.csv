@@ -1,0 +1,51 @@
+text,intent
+How to play guitar for beginners?,out_of_scope
+Can an executive engage in arbitration or private legal consulting?,general_conduct
+"Hey, need some guidance on rules",greeting
+What acts of moral turpitude constitute grave misconduct?,misconduct
+Rules on criticizing government or company policies in public forums,general_conduct
+What is the distance between Earth and Moon?,out_of_scope
+What are the major penalties under BCCL CDA Rules?,major_penalty
+Submitting immovable property returns before prescribed date,general_conduct
+"Thank you, that answers my question",goodbye
+Who has the power to interpret the provisions of BCCL CDA Rules?,clarification_general
+Obligation to abide by mining safety acts and company regulations,general_conduct
+What is recovery from pay for pecuniary loss caused to company?,minor_penalty
+Definition of Appellate Authority and Reviewing Authority,clarification_general
+What deductions can be made from subsistence allowance?,suspension
+Greetings,greeting
+Time limit for Appellate Authority to decide on an appeal,appeal_procedure
+Tell me the scope and applicability of Conduct Discipline and Appeal Rules.,clarification_general
+What acts of omission or commission are treated as misconduct?,misconduct
+Give examples of misconduct.,misconduct
+Legal remedies available to executive after exhaustion of departmental appeal,appeal_procedure
+Minor penalty rules under Chapter IV of BCCL CDA,minor_penalty
+What is the role of the Presenting Officer in an inquiry?,disciplinary_procedure
+Good night,goodbye
+Is censure considered a minor penalty?,minor_penalty
+What report does the Inquiring Authority submit to Disciplinary Authority?,disciplinary_procedure
+What happens in case of doubt in interpretation of any rule?,clarification_general
+Bye,goodbye
+Good afternoon,greeting
+What happens to pay and allowances if suspension is revoked?,suspension
+Tell me about Rule 29 inquiry procedure.,disciplinary_procedure
+Is there a second appeal or memorial to the Board of Directors?,appeal_procedure
+Tell me about Rule 27 major penalties.,major_penalty
+"Great, thanks a lot",goodbye
+Is there an official handbook of CDA rules available?,clarification_general
+What is the theory of relativity by Einstein?,out_of_scope
+Tell me about suspension rules.,suspension
+Record of censure in employee confidential report (APAR),minor_penalty
+Can an employee be dismissed on conviction by a court of law?,major_penalty
+Can an employee seek political influence for transfers or promotions?,general_conduct
+What are the symptoms of common cold?,out_of_scope
+Have a great day,goodbye
+Authority competent to impose minor penalties on junior executives,minor_penalty
+Can an employee dismissed from BCCL be re-employed in CIL subsidiaries?,major_penalty
+What powers does the Appellate Authority have?,appeal_procedure
+Can an officer be suspended if criminal proceedings are pending?,suspension
+Rule 5 definitions of executive misconduct,misconduct
+Can the disciplinary authority impose major penalties directly?,major_penalty
+When can formal inquiry be dispensed with under BCCL rules?,disciplinary_procedure
+Refusal to accept official communication or charge sheet,misconduct
+Hey assistant I have a question,greeting

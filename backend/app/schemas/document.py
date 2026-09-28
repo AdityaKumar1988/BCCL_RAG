@@ -5,6 +5,7 @@ from datetime import datetime
 class ChunkResponse(BaseModel):
     id: int
     document_id: int
+    knowledge_base: Optional[str] = "CDA_Rules"
     chunk_index: int
     page_number: int
     rule_number: Optional[str] = None
@@ -26,6 +27,7 @@ class DocumentResponse(DocumentBase):
     total_pages: int
     status: str
     is_scanned: bool
+    knowledge_base: str = "CDA_Rules"
     summary: Optional[str] = None
     chunks_count: Optional[int] = 0
     created_at: datetime
@@ -39,4 +41,5 @@ class DocumentDetailResponse(DocumentResponse):
 class DocumentSearchQuery(BaseModel):
     query: str
     document_id: Optional[int] = None
+    knowledge_base: Optional[str] = None
     top_k: Optional[int] = 5

@@ -1,7 +1,7 @@
 import os
 import shutil
 import uuid
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, BackgroundTasks, status
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, BackgroundTasks, status
 from sqlalchemy.orm import Session
 from datetime import datetime, timezone
 from typing import List, Optional
@@ -42,7 +42,8 @@ def run_async_ingestion(document_id: int, job_id: int, db_url: str):
 async def upload_document(
     background_tasks: BackgroundTasks,
     file: UploadFile = File(...),
-    title: Optional[str] = None,
+    title: Optional[str] = Form(None),
+    knowledge_base: Optional[str] = Form("CDA_Rules"),
     current_user: User = Depends(require_admin),
     db: Session = Depends(get_db)
 ):
@@ -70,6 +71,7 @@ async def upload_document(
         file_size=len(content),
         mime_type="application/pdf",
         status="UPLOADED",
+        knowledge_base=knowledge_base or "CDA_Rules",
         uploaded_by=current_user.id,
         created_at=datetime.now(timezone.utc),
         updated_at=datetime.now(timezone.utc)

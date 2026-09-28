@@ -25,16 +25,21 @@ class RAGGenerator:
         self,
         query: str,
         history: List[Message] = [],
-        document_id: Optional[int] = None
+        document_id: Optional[int] = None,
+        knowledge_base: Optional[str] = None
     ) -> Tuple[str, List[CitationItem], bool, float, List[Tuple[DocumentChunk, float]]]:
         start_time = time.time()
 
         # Step 1: Query understanding & rewriting
         processed_query = self.query_processor.rewrite_conversational_query(query, history)
-        logger.info(f"Original Query: '{query}' -> Processed Query: '{processed_query}'")
+        logger.info(f"Original Query: '{query}' -> Processed Query: '{processed_query}' (KB: {knowledge_base})")
 
         # Step 2: Hybrid Retrieval (Dense + BM25 + Rerank)
-        retrieved_chunks = self.retriever.retrieve(processed_query, document_id=document_id)
+        retrieved_chunks = self.retriever.retrieve(
+            processed_query,
+            document_id=document_id,
+            knowledge_base=knowledge_base
+        )
 
         # Step 3: Evidence Evaluation & Abstention Check
         should_abstain, reason = self.abstention_evaluator.evaluate(processed_query, retrieved_chunks)
@@ -77,10 +82,15 @@ class RAGGenerator:
         self,
         query: str,
         history: List[Message] = [],
-        document_id: Optional[int] = None
+        document_id: Optional[int] = None,
+        knowledge_base: Optional[str] = None
     ) -> Generator[str, None, None]:
         processed_query = self.query_processor.rewrite_conversational_query(query, history)
-        retrieved_chunks = self.retriever.retrieve(processed_query, document_id=document_id)
+        retrieved_chunks = self.retriever.retrieve(
+            processed_query,
+            document_id=document_id,
+            knowledge_base=knowledge_base
+        )
         should_abstain, _ = self.abstention_evaluator.evaluate(processed_query, retrieved_chunks)
 
         if should_abstain:

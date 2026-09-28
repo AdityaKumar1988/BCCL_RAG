@@ -22,10 +22,18 @@ class BM25Retriever:
         cleaned = re.sub(r"[^\w\s]", " ", text.lower())
         return [t for t in cleaned.split() if len(t) > 1]
 
-    def search(self, query: str, top_k: int = 10, document_id: Optional[int] = None) -> List[Tuple[DocumentChunk, float]]:
+    def search(
+        self,
+        query: str,
+        top_k: int = 10,
+        document_id: Optional[int] = None,
+        knowledge_base: Optional[str] = None
+    ) -> List[Tuple[DocumentChunk, float]]:
         chunk_query = self.db.query(DocumentChunk).join(Document, DocumentChunk.document_id == Document.id).filter(Document.status == "READY")
         if document_id:
             chunk_query = chunk_query.filter(DocumentChunk.document_id == document_id)
+        if knowledge_base and knowledge_base.lower() != "all":
+            chunk_query = chunk_query.filter(Document.knowledge_base == knowledge_base)
 
         chunks = chunk_query.all()
         if not chunks:

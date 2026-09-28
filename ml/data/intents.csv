@@ -1,0 +1,331 @@
+text,intent
+Hello,greeting
+Hi there,greeting
+Good morning,greeting
+Good afternoon,greeting
+Good evening,greeting
+Hey,greeting
+Greetings,greeting
+Hello assistant,greeting
+Hi BCCL Assistant,greeting
+Namaste,greeting
+Hello how are you?,greeting
+Hi can you help me with BCCL rules?,greeting
+Hey assistant I have a question,greeting
+Good day,greeting
+Hello there,greeting
+Hi I need some information,greeting
+Hey BCCL knowledge bot,greeting
+Hello can you answer questions regarding Coal India rules?,greeting
+Hi are you ready to assist?,greeting
+Good morning assistant,greeting
+Hello BCCL portal,greeting
+"Hi, is anyone there?",greeting
+Greetings assistant,greeting
+Hey there can you help me today?,greeting
+"Hello, I am an employee at BCCL",greeting
+Hi support assistant,greeting
+Hello team,greeting
+"Hey, need some guidance on rules",greeting
+Good evening assistant,greeting
+"Hi, glad to connect",greeting
+Goodbye,goodbye
+Bye,goodbye
+See you later,goodbye
+"Thank you so much, bye",goodbye
+"Thanks for your help, goodbye",goodbye
+That is all for today,goodbye
+Have a great day,goodbye
+"Thanks, see you",goodbye
+"Thank you, that answers my question",goodbye
+Okay bye,goodbye
+Goodbye assistant,goodbye
+"Thanks a lot, I am done",goodbye
+"I have got all the information, thank you",goodbye
+"That was very helpful, bye",goodbye
+"No further questions, thanks",goodbye
+"Signing off, bye",goodbye
+"Thank you, talk to you later",goodbye
+"All done for now, goodbye",goodbye
+Have a nice day ahead,goodbye
+"Thanks, closing now",goodbye
+Farewell,goodbye
+Catch you later,goodbye
+"Thank you very much, goodbye",goodbye
+"That will be all, thanks",goodbye
+Bye for now,goodbye
+"Great, thanks a lot",goodbye
+"Thank you for the detailed answer, bye",goodbye
+Good night,goodbye
+"Exit chat, thank you",goodbye
+"Appreciate the help, bye",goodbye
+What are the rules regarding suspension?,suspension
+When can an employee be suspended in BCCL?,suspension
+Tell me about suspension rules.,suspension
+Under what circumstances can suspension be imposed?,suspension
+What is the subsistence allowance during suspension?,suspension
+Can subsistence allowance be increased after 6 months of suspension?,suspension
+Who has the authority to suspend an employee?,suspension
+What happens if an employee is arrested for more than 48 hours?,suspension
+Is suspension considered a formal penalty?,suspension
+How is deemed suspension defined under BCCL CDA Rules?,suspension
+What are the rights of a suspended executive?,suspension
+Can a suspension order be modified or revoked?,suspension
+What percentage of basic pay is paid as subsistence allowance?,suspension
+Rules governing deemed suspension of officers,suspension
+Is an employee allowed outside headquarters during suspension?,suspension
+What happens to pay and allowances if suspension is revoked?,suspension
+What certificates must a suspended employee furnish to claim subsistence allowance?,suspension
+Can an employee take other employment while on suspension?,suspension
+Period of suspension review guidelines,suspension
+Suspension provisions under Chapter III,suspension
+Does the appointing authority alone have the power to suspend?,suspension
+What deductions can be made from subsistence allowance?,suspension
+Guidelines on subsistence allowance if inquiry is delayed by management,suspension
+How long can an employee remain under suspension without inquiry?,suspension
+Procedure for placing a public servant under suspension in BCCL,suspension
+Treatment of period of suspension after reinstatement,suspension
+Can an officer be suspended if criminal proceedings are pending?,suspension
+What happens when criminal trial against a suspended employee ends in acquittal?,suspension
+Subsistence allowance reduction rules if employee delays inquiry,suspension
+Official procedure for issuing suspension order in BCCL,suspension
+What constitutes misconduct under BCCL CDA Rules?,misconduct
+Give examples of misconduct.,misconduct
+Is theft or fraud considered misconduct?,misconduct
+Tell me about Rule 5 regarding misconduct.,misconduct
+What acts of omission or commission are treated as misconduct?,misconduct
+Is sexual harassment classified as misconduct?,misconduct
+Is taking bribes or illegal gratification misconduct in BCCL?,misconduct
+Can an employee engage in private trade without permission?,misconduct
+Is habitual late attendance considered misconduct?,misconduct
+What are the consequences of insubordination?,misconduct
+Is sleeping while on duty a misconduct in mining areas?,misconduct
+Can an employee participate in political demonstrations?,misconduct
+Is damage to company property considered misconduct?,misconduct
+Submitting false medical claims or certificates as misconduct,misconduct
+Breach of mine safety regulations and employee misconduct,misconduct
+Intoxication or disorderly behavior on duty hours,misconduct
+Can an employee accept valuable gifts under conduct rules?,misconduct
+Unauthorized absence from work without leave application,misconduct
+Disclosing confidential BCCL documents without authority,misconduct
+What acts of moral turpitude constitute grave misconduct?,misconduct
+Spreading rumors or instigating strikes in colliery premises,misconduct
+Rule 5 definitions of executive misconduct,misconduct
+Is speculation in stocks or shares permitted under BCCL conduct rules?,misconduct
+Conflict of interest and employing near relatives in business,misconduct
+Neglect of work and gross negligence in mining operations,misconduct
+Can an executive hold private agency or commercial interests?,misconduct
+"Falsification of company records, muster rolls, or coal weighment",misconduct
+Refusal to accept official communication or charge sheet,misconduct
+Unbecoming conduct of a public sector employee,misconduct
+Prohibition against taking part in politics and elections,misconduct
+What are the major penalties under BCCL CDA Rules?,major_penalty
+List all major penalties applicable to executives.,major_penalty
+Is dismissal from service a major penalty?,major_penalty
+What is the difference between removal and dismissal from service?,major_penalty
+Can an employee be reduced in rank as a major penalty?,major_penalty
+What does compulsory retirement mean as a major penalty?,major_penalty
+Tell me about Rule 27 major penalties.,major_penalty
+Does removal from service disqualify an employee from future government jobs?,major_penalty
+Can pay scale be reduced to a lower stage as a major penalty?,major_penalty
+When can dismissal be imposed on an employee?,major_penalty
+Is reduction to a lower grade a major punishment?,major_penalty
+What are the statutory major penalties in BCCL?,major_penalty
+Distinction between minor and major penalties under Rule 27,major_penalty
+Can a major penalty be imposed without a formal inquiry?,major_penalty
+Consequences of dismissal on pension and gratuity benefits,major_penalty
+Reduction to a lower time-scale of pay with loss of seniority,major_penalty
+Which authority is competent to impose major penalties?,major_penalty
+Removal from service criteria in disciplinary proceedings,major_penalty
+Does dismissal forfeit past service of an executive?,major_penalty
+Can an employee be dismissed on conviction by a court of law?,major_penalty
+Major penalty provisions under BCCL Conduct Discipline and Appeal Rules,major_penalty
+Is withholding of promotion a major or minor penalty?,major_penalty
+What major penalties are specified under Rule 27 clause 2?,major_penalty
+Grounds for awarding dismissal from service in Coal India,major_penalty
+Can the disciplinary authority impose major penalties directly?,major_penalty
+Difference between compulsory retirement and voluntary retirement,major_penalty
+What are the most severe punishments under BCCL rules?,major_penalty
+Imposition of major penalty following vigilance inquiry,major_penalty
+Can an employee dismissed from BCCL be re-employed in CIL subsidiaries?,major_penalty
+Statutory sanctions and major penalty list,major_penalty
+What are the minor penalties under BCCL rules?,minor_penalty
+List the minor penalties under Rule 27.,minor_penalty
+Is censure considered a minor penalty?,minor_penalty
+Can increments be withheld as a minor penalty?,minor_penalty
+What is recovery from pay for pecuniary loss caused to company?,minor_penalty
+Tell me about withholding of promotion as a minor penalty.,minor_penalty
+Is withholding of increment with cumulative effect a minor penalty?,minor_penalty
+What is the difference between warning and censure?,minor_penalty
+Can a minor penalty be imposed without an inquiry?,minor_penalty
+Recovery of financial loss caused by negligence,minor_penalty
+Withholding of increments without cumulative effect,minor_penalty
+Stagnation reduction in pay scale for not exceeding three years,minor_penalty
+What punishments are classified as minor under Rule 27?,minor_penalty
+Procedure for imposing minor penalties on executives,minor_penalty
+Can disciplinary authority issue censure after calling for explanation?,minor_penalty
+Is withholding of promotion for 1 year a minor penalty?,minor_penalty
+What is the lightest penalty that can be awarded to an executive?,minor_penalty
+Can recovery of whole loss be ordered under minor penalty?,minor_penalty
+Withholding of efficiency bar or grade increment,minor_penalty
+Minor penalty rules under Chapter IV of BCCL CDA,minor_penalty
+Is a formal inquiry mandatory for minor penalties?,minor_penalty
+Can censure affect promotion prospects in BCCL?,minor_penalty
+What explanation must be sought before issuing minor penalty?,minor_penalty
+Minor penalties list according to Coal India executives CDA rules,minor_penalty
+Withholding of increments of pay for a specific duration,minor_penalty
+Record of censure in employee confidential report (APAR),minor_penalty
+Can an employee appeal against a minor penalty like censure?,minor_penalty
+Distinction between advisory memo and minor penalty censure,minor_penalty
+Time limit to reply to minor penalty show-cause notice,minor_penalty
+Authority competent to impose minor penalties on junior executives,minor_penalty
+What is the procedure for imposing major penalties?,disciplinary_procedure
+How is a disciplinary inquiry conducted in BCCL?,disciplinary_procedure
+Tell me about Rule 29 inquiry procedure.,disciplinary_procedure
+What are the articles of charge?,disciplinary_procedure
+How many days does an employee get to submit written statement of defense?,disciplinary_procedure
+Who appoints the Inquiry Officer in BCCL?,disciplinary_procedure
+What is the role of the Presenting Officer in an inquiry?,disciplinary_procedure
+Can an employee inspect documents during a disciplinary proceeding?,disciplinary_procedure
+Can a charged employee engage a defense assistant or lawyer?,disciplinary_procedure
+What are the rights of an employee facing inquiry?,disciplinary_procedure
+Procedure for framing charge sheet under Rule 29,disciplinary_procedure
+Can ex-parte inquiry be conducted if employee does not attend?,disciplinary_procedure
+How should witnesses be examined and cross-examined in an inquiry?,disciplinary_procedure
+What report does the Inquiring Authority submit to Disciplinary Authority?,disciplinary_procedure
+Does the charged employee get a copy of the inquiry report?,disciplinary_procedure
+Time limit for submitting representation against inquiry report,disciplinary_procedure
+When can formal inquiry be dispensed with under BCCL rules?,disciplinary_procedure
+Action by Disciplinary Authority on receipt of inquiry report,disciplinary_procedure
+Difference in procedure between major and minor penalties,disciplinary_procedure
+Service of charge sheet on absconding or non-responsive employee,disciplinary_procedure
+Can Disciplinary Authority disagree with Inquiry Officer findings?,disciplinary_procedure
+Requirement of statement of imputations in support of each charge,disciplinary_procedure
+Procedure when charged officer admits misconduct in writing,disciplinary_procedure
+Daily order sheet maintenance during departmental inquiry,disciplinary_procedure
+Right of defense to produce defense witnesses and defense documents,disciplinary_procedure
+Can a retired officer be appointed as Inquiry Officer?,disciplinary_procedure
+Standard of proof required in BCCL departmental disciplinary inquiries,disciplinary_procedure
+Preponderance of probability in departmental proceedings,disciplinary_procedure
+Procedure for supply of copies of relied upon documents to charged official,disciplinary_procedure
+Rules for completing departmental inquiry within stipulated timeframe,disciplinary_procedure
+What are the rules regarding appeals in BCCL?,appeal_procedure
+How can an employee appeal against a penalty order?,appeal_procedure
+What is the limitation period for filing an appeal?,appeal_procedure
+Can an appeal be submitted after 45 days?,appeal_procedure
+Who is the Appellate Authority under BCCL CDA Rules?,appeal_procedure
+Tell me about Rule 34 appeals.,appeal_procedure
+What powers does the Appellate Authority have?,appeal_procedure
+Can the Appellate Authority enhance the penalty awarded?,appeal_procedure
+What should be the form and contents of an appeal petition?,appeal_procedure
+Where should an appeal be addressed and submitted?,appeal_procedure
+Is there a provision for revision or review of orders?,appeal_procedure
+Can an employee appeal against suspension order?,appeal_procedure
+What happens if an appeal is filed beyond the 45-day deadline?,appeal_procedure
+Can personal hearing be granted by Appellate Authority?,appeal_procedure
+Does Appellate Authority have power to set aside the punishment?,appeal_procedure
+Appeal procedure under Chapter IV of BCCL CDA Rules,appeal_procedure
+Who is the reviewing authority in BCCL?,appeal_procedure
+Can an appeal petition contain disrespectful or improper language?,appeal_procedure
+Is there a second appeal or memorial to the Board of Directors?,appeal_procedure
+Time limit for Appellate Authority to decide on an appeal,appeal_procedure
+Orders against which no appeal lies under BCCL rules,appeal_procedure
+Consideration of appeal: matters to be considered by Appellate Authority,appeal_procedure
+Can the penalty be reduced or remitted on appeal?,appeal_procedure
+Procedure when Appellate Authority proposes to enhance penalty,appeal_procedure
+Requirement of giving reasonable opportunity before enhancing penalty,appeal_procedure
+Can an employee file review petition if appeal is rejected?,appeal_procedure
+Powers of Chairman Coal India or Board as Reviewing Authority,appeal_procedure
+Transmission of appeal through proper channel to appellate body,appeal_procedure
+Stay of execution of penalty during pendency of appeal,appeal_procedure
+Legal remedies available to executive after exhaustion of departmental appeal,appeal_procedure
+What are the general conduct rules for BCCL executives?,general_conduct
+Tell me about Rule 4 general conduct and integrity.,general_conduct
+What are the duties and obligations of executives?,general_conduct
+Are employees required to maintain absolute integrity and devotion to duty?,general_conduct
+What is the responsibility of supervisory staff for subordinates' integrity?,general_conduct
+Rules regarding employment of near relatives in private firms,general_conduct
+Can BCCL officers join political parties or contest elections?,general_conduct
+Can an employee accept gifts from contractors or suppliers?,general_conduct
+Rules regarding acquiring and disposing of movable and immovable property,general_conduct
+Is an employee required to submit annual property returns?,general_conduct
+Restrictions on private investments and commercial speculations,general_conduct
+Can an employee publish books or participate in radio or television broadcasts?,general_conduct
+Rules on criticizing government or company policies in public forums,general_conduct
+Code of conduct and ethical obligations of Coal India executives,general_conduct
+Prohibition of dowry and domestic violence in conduct rules,general_conduct
+Obligation to abide by mining safety acts and company regulations,general_conduct
+Rules on consumption of intoxicating drinks and drugs while on duty,general_conduct
+Can an executive engage in arbitration or private legal consulting?,general_conduct
+Obligations regarding official secrecy and confidential reports,general_conduct
+Conduct unbecoming of a public servant under Rule 4,general_conduct
+Can an employee seek political influence for transfers or promotions?,general_conduct
+Requirement of prior sanction for foreign travel or visiting foreign countries,general_conduct
+Restrictions on borrowing and lending money with subordinates or contractors,general_conduct
+Submitting immovable property returns before prescribed date,general_conduct
+Rules on communication of official information to media,general_conduct
+Standards of conduct expected of public sector managers,general_conduct
+Can an executive be an office bearer in political organizations?,general_conduct
+Prohibition against promoting communal disharmony or unlawful assembly,general_conduct
+Integrity obligations under Chapter II of CDA Rules,general_conduct
+General principles of executive discipline in Bharat Coking Coal Limited,general_conduct
+To whom do the BCCL CDA Rules apply?,clarification_general
+What is the title and commencement date of BCCL CDA Rules?,clarification_general
+Who is considered an Executive under these rules?,clarification_general
+Who is defined as Disciplinary Authority under BCCL rules?,clarification_general
+What is the definition of Appointing Authority?,clarification_general
+What does Company mean in BCCL CDA Rules 1978?,clarification_general
+Are non-executives or daily rated workmen covered under CDA Rules?,clarification_general
+Which rules govern non-executive workers and miners?,clarification_general
+What is the definition of Board of Directors in BCCL?,clarification_general
+Tell me the scope and applicability of Conduct Discipline and Appeal Rules.,clarification_general
+What is meant by Competent Authority in Coal India?,clarification_general
+Where can I find the definition of family under conduct rules?,clarification_general
+Do CDA rules apply to probationers or temporary executives?,clarification_general
+Can CDA rules be amended and by whom?,clarification_general
+What happens in case of doubt in interpretation of any rule?,clarification_general
+Who has the power to interpret the provisions of BCCL CDA Rules?,clarification_general
+What is the effective date of the amended CDA Rules 2006?,clarification_general
+Are retired employees subject to any provisions of CDA rules?,clarification_general
+Definition of Appellate Authority and Reviewing Authority,clarification_general
+Difference between Standing Orders and CDA Rules in BCCL,clarification_general
+Does the Chairman CIL have powers to issue administrative instructions?,clarification_general
+What are the chapters contained in the CDA Rules manual?,clarification_general
+How are officers on deputation from other PSU or government treated?,clarification_general
+Definitions clause Rule 3 of BCCL CDA Rules,clarification_general
+Legal framework governing discipline in Bharat Coking Coal Limited,clarification_general
+How is the seniority of executives determined under CIL guidelines?,clarification_general
+Applicability of rules to executives transferred between CIL subsidiaries,clarification_general
+What is the jurisdiction of BCCL disciplinary authorities?,clarification_general
+Is there an official handbook of CDA rules available?,clarification_general
+Overview of chapters in Coal India CDA manual,clarification_general
+What is the weather in Dhanbad today?,out_of_scope
+Who won the cricket match yesterday?,out_of_scope
+How do I bake a chocolate cake?,out_of_scope
+Can you write a Python script for binary search?,out_of_scope
+What is the capital of France?,out_of_scope
+Tell me a joke.,out_of_scope
+Recommend some good movies on Netflix.,out_of_scope
+What is the distance between Earth and Moon?,out_of_scope
+How do I fix a flat tire on my bicycle?,out_of_scope
+Can you help me solve a calculus problem?,out_of_scope
+What is quantum computing?,out_of_scope
+Who is the president of the United States?,out_of_scope
+What are the best tourist places in India?,out_of_scope
+How do I cook biryani?,out_of_scope
+Can you write a poem about the sunrise?,out_of_scope
+What is the stock price of Apple today?,out_of_scope
+How do I train a dog to sit?,out_of_scope
+What are the latest smartphone releases?,out_of_scope
+Explain photosynthesis in plants.,out_of_scope
+What is the plot of Inception movie?,out_of_scope
+How many continents are there in the world?,out_of_scope
+Can you write a resume for software engineering?,out_of_scope
+What is the rules of chess?,out_of_scope
+Who won the FIFA World Cup in 2022?,out_of_scope
+How does an internal combustion engine work?,out_of_scope
+What are the symptoms of common cold?,out_of_scope
+Where is Mount Everest located?,out_of_scope
+How to play guitar for beginners?,out_of_scope
+What is the theory of relativity by Einstein?,out_of_scope
+Can you give me a recipe for pancakes?,out_of_scope

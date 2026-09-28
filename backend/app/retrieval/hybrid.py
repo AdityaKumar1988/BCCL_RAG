@@ -22,13 +22,14 @@ class HybridRetriever:
         query: str,
         top_k: Optional[int] = None,
         document_id: Optional[int] = None,
-        use_rrf: bool = True
+        use_rrf: bool = True,
+        knowledge_base: Optional[str] = None
     ) -> List[Tuple[DocumentChunk, float]]:
         k = top_k or settings.RETRIEVAL_TOP_K
-        pool_size = max(k * 2, settings.RERANKER_TOP_N)
+        pool_size = max(k * 4, 30)
 
-        dense_results = self.semantic_retriever.search(query, top_k=pool_size, document_id=document_id)
-        sparse_results = self.bm25_retriever.search(query, top_k=pool_size, document_id=document_id)
+        dense_results = self.semantic_retriever.search(query, top_k=pool_size, document_id=document_id, knowledge_base=knowledge_base)
+        sparse_results = self.bm25_retriever.search(query, top_k=pool_size, document_id=document_id, knowledge_base=knowledge_base)
 
         # Merge candidate pools
         chunk_map: Dict[int, DocumentChunk] = {}

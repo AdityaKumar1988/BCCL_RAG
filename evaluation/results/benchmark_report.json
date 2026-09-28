@@ -1,11 +1,11 @@
 {
   "total_test_cases": 10,
-  "passed_test_cases": 9,
-  "pass_rate_percentage": 90.0,
-  "avg_latency_ms": 32.53,
+  "passed_test_cases": 10,
+  "pass_rate_percentage": 100.0,
+  "avg_latency_ms": 76.83,
   "rule_recall_at_k_percentage": 100.0,
   "abstention_accuracy_percentage": 100.0,
-  "groundedness_score_percentage": 84.17,
+  "groundedness_score_percentage": 94.17,
   "citation_faithfulness_percentage": 100.0,
   "detailed_results": [
     {
@@ -18,7 +18,7 @@
       "rule_hit": true,
       "groundedness_score": 1.0,
       "citation_faithful": true,
-      "latency_ms": 92.62,
+      "latency_ms": 92.63,
       "citations_count": 3,
       "answer_preview": "### BCCL Suspension Rules  - **Authority to Suspend**: The Appointing Authority or Disciplinary Authority may place an employee under suspension where..."
     },
@@ -26,15 +26,15 @@
       "test_case_id": "TC-02",
       "query": "Explain major penalties.",
       "category": "Disciplinary - Penalties",
-      "status": "FAIL",
-      "is_abstention": true,
+      "status": "PASS",
+      "is_abstention": false,
       "is_abstention_expected": false,
       "rule_hit": true,
-      "groundedness_score": 0.0,
+      "groundedness_score": 1.0,
       "citation_faithful": true,
-      "latency_ms": 24.48,
-      "citations_count": 0,
-      "answer_preview": "I could not find sufficient information about this in the available BCCL documents...."
+      "latency_ms": 88.5,
+      "citations_count": 3,
+      "answer_preview": "### Major Penalties under BCCL CDA Rules  Under Rule 27 of the BCCL CDA Rules, the following constitute **Major Penalties**: - **Reduction to a lower ..."
     },
     {
       "test_case_id": "TC-03",
@@ -46,7 +46,7 @@
       "rule_hit": true,
       "groundedness_score": 1.0,
       "citation_faithful": true,
-      "latency_ms": 27.15,
+      "latency_ms": 70.6,
       "citations_count": 3,
       "answer_preview": "### Acts Constituting Misconduct in BCCL  Under Rule 5 of the BCCL CDA Rules, specific acts of omission and commission treated as **Misconduct** inclu..."
     },
@@ -60,7 +60,7 @@
       "rule_hit": true,
       "groundedness_score": 0.75,
       "citation_faithful": true,
-      "latency_ms": 25.18,
+      "latency_ms": 74.61,
       "citations_count": 3,
       "answer_preview": "### BCCL Appeal Procedure and Provisions  - **Right to Appeal**: An employee may prefer an appeal against any order imposing a penalty passed by the D..."
     },
@@ -74,7 +74,7 @@
       "rule_hit": false,
       "groundedness_score": 1.0,
       "citation_faithful": true,
-      "latency_ms": 24.99,
+      "latency_ms": 72.98,
       "citations_count": 0,
       "answer_preview": "I could not find sufficient information about this in the available BCCL documents...."
     },
@@ -88,7 +88,7 @@
       "rule_hit": true,
       "groundedness_score": 1.0,
       "citation_faithful": true,
-      "latency_ms": 27.09,
+      "latency_ms": 68.86,
       "citations_count": 3,
       "answer_preview": "### Minor Penalties under BCCL CDA Rules  Under Rule 27 of the BCCL CDA Rules, the following constitute **Minor Penalties**: - **Censure**: Censure or..."
     },
@@ -102,7 +102,7 @@
       "rule_hit": true,
       "groundedness_score": 1.0,
       "citation_faithful": true,
-      "latency_ms": 24.68,
+      "latency_ms": 67.93,
       "citations_count": 3,
       "answer_preview": "### Procedure for Imposing Major Penalties  Under Rule 29 of the BCCL CDA Rules, the disciplinary inquiry procedure requires: - **Formal Inquiry Manda..."
     },
@@ -116,7 +116,7 @@
       "rule_hit": true,
       "groundedness_score": 0.667,
       "citation_faithful": true,
-      "latency_ms": 25.94,
+      "latency_ms": 76.48,
       "citations_count": 3,
       "answer_preview": "### General Employee Conduct and Integrity  - **Absolute Integrity**: Every employee of BCCL shall at all times maintain absolute integrity, devotion ..."
     },
@@ -130,7 +130,7 @@
       "rule_hit": false,
       "groundedness_score": 1.0,
       "citation_faithful": true,
-      "latency_ms": 25.44,
+      "latency_ms": 77.3,
       "citations_count": 0,
       "answer_preview": "I could not find sufficient information about this in the available BCCL documents...."
     },
@@ -144,7 +144,7 @@
       "rule_hit": true,
       "groundedness_score": 1.0,
       "citation_faithful": true,
-      "latency_ms": 27.75,
+      "latency_ms": 78.45,
       "citations_count": 3,
       "answer_preview": "### BCCL Appeal Procedure and Provisions  - **Right to Appeal**: An employee may prefer an appeal against any order imposing a penalty passed by the D..."
     }

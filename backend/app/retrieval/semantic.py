@@ -11,7 +11,13 @@ class SemanticRetriever:
         self.db = db
         self.embedding_provider = embedding_provider or EmbeddingProviderFactory.get_provider()
 
-    def search(self, query: str, top_k: int = 10, document_id: Optional[int] = None) -> List[Tuple[DocumentChunk, float]]:
+    def search(
+        self,
+        query: str,
+        top_k: int = 10,
+        document_id: Optional[int] = None,
+        knowledge_base: Optional[str] = None
+    ) -> List[Tuple[DocumentChunk, float]]:
         query_embedding = np.array(self.embedding_provider.embed_query(query), dtype=np.float32)
         query_norm = np.linalg.norm(query_embedding)
         if query_norm > 0:
@@ -20,6 +26,8 @@ class SemanticRetriever:
         chunk_query = self.db.query(DocumentChunk).join(Document, DocumentChunk.document_id == Document.id).filter(Document.status == "READY")
         if document_id:
             chunk_query = chunk_query.filter(DocumentChunk.document_id == document_id)
+        if knowledge_base and knowledge_base.lower() != "all":
+            chunk_query = chunk_query.filter(Document.knowledge_base == knowledge_base)
 
         chunks = chunk_query.all()
         if not chunks:

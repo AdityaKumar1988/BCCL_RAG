@@ -1,0 +1,28 @@
+{
+  "label2id": {
+    "appeal_procedure": 0,
+    "clarification_general": 1,
+    "disciplinary_procedure": 2,
+    "general_conduct": 3,
+    "goodbye": 4,
+    "greeting": 5,
+    "major_penalty": 6,
+    "minor_penalty": 7,
+    "misconduct": 8,
+    "out_of_scope": 9,
+    "suspension": 10
+  },
+  "id2label": {
+    "0": "appeal_procedure",
+    "1": "clarification_general",
+    "2": "disciplinary_procedure",
+    "3": "general_conduct",
+    "4": "goodbye",
+    "5": "greeting",
+    "6": "major_penalty",
+    "7": "minor_penalty",
+    "8": "misconduct",
+    "9": "out_of_scope",
+    "10": "suspension"
+  }
+}

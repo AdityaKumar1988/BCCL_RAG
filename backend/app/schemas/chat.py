@@ -6,6 +6,7 @@ class CitationItem(BaseModel):
     chunk_id: int
     document_id: int
     document_name: str
+    knowledge_base: Optional[str] = None
     page_number: int
     rule_number: Optional[str] = None
     section_title: Optional[str] = None
@@ -19,6 +20,7 @@ class ChatRequest(BaseModel):
     message: str
     stream: Optional[bool] = False
     document_id: Optional[int] = None
+    knowledge_base: Optional[str] = "all"  # "all", "CDA_Rules", "BCCL_Rules"
 
 class MessageResponse(BaseModel):
     id: int
@@ -49,3 +51,11 @@ class ChatResponse(BaseModel):
     is_abstention: bool = False
     latency_ms: float
     retrieval_count: int
+    recognized_speech: Optional[str] = None
+    transcribed_text: Optional[str] = None
+    text: Optional[str] = None
+    detected_intent: Optional[str] = None
+    intent: Optional[str] = None
+    intent_confidence: Optional[float] = None
+    confidence: Optional[float] = None
+    knowledge_base: Optional[str] = None

@@ -15,6 +15,7 @@ class Document(Base):
     total_pages = Column(Integer, default=0, nullable=False)
     status = Column(String(32), default="UPLOADED", nullable=False)  # UPLOADED, PROCESSING, OCR_REQUIRED, CHUNKING, EMBEDDING, INDEXING, READY, FAILED
     is_scanned = Column(Boolean, default=False, nullable=False)
+    knowledge_base = Column(String(64), default="CDA_Rules", index=True, nullable=False)
     summary = Column(Text, nullable=True)
     uploaded_by = Column(Integer, nullable=True)
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), nullable=False)

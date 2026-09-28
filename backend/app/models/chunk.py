@@ -8,6 +8,7 @@ class DocumentChunk(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     document_id = Column(Integer, ForeignKey("documents.id", ondelete="CASCADE"), nullable=False, index=True)
+    knowledge_base = Column(String(64), default="CDA_Rules", index=True, nullable=False)
     chunk_index = Column(Integer, nullable=False)
     page_number = Column(Integer, nullable=False, index=True)
     rule_number = Column(String(64), nullable=True, index=True)

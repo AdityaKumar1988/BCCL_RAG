@@ -11,8 +11,11 @@ from backend.app.retrieval.hybrid import HybridRetriever
 router = APIRouter(prefix="/api/documents", tags=["Documents"])
 
 @router.get("", response_model=List[DocumentResponse])
-def list_documents(db: Session = Depends(get_db)):
-    docs = db.query(Document).order_by(Document.created_at.desc()).all()
+def list_documents(knowledge_base: Optional[str] = Query(None), db: Session = Depends(get_db)):
+    query = db.query(Document)
+    if knowledge_base and knowledge_base.lower() != "all":
+        query = query.filter(Document.knowledge_base == knowledge_base)
+    docs = query.order_by(Document.created_at.desc()).all()
     results = []
     for d in docs:
         chunk_count = db.query(DocumentChunk).filter(DocumentChunk.document_id == d.id).count()
@@ -54,7 +57,8 @@ def search_knowledge_base(search_in: DocumentSearchQuery, db: Session = Depends(
     results = retriever.retrieve(
         query=search_in.query,
         top_k=search_in.top_k or 5,
-        document_id=search_in.document_id
+        document_id=search_in.document_id,
+        knowledge_base=search_in.knowledge_base
     )
     
     resp_list = []

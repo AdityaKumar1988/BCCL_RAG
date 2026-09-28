@@ -92,6 +92,7 @@ class IngestionPipeline:
             for meta, emb in zip(chunks_metadata, embeddings):
                 db_chunk = DocumentChunk(
                     document_id=doc.id,
+                    knowledge_base=doc.knowledge_base,
                     chunk_index=meta.chunk_index,
                     page_number=meta.page_number,
                     rule_number=meta.rule_number,

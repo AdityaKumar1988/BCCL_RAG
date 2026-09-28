@@ -12,7 +12,9 @@ from backend.app.models.conversation import Conversation
 from backend.app.models.message import Message
 from backend.app.models.audit import AuditLog
 from backend.app.schemas.chat import ChatRequest, ChatResponse, ConversationResponse, MessageResponse, CitationItem
+import time
 from backend.app.rag.generator import RAGGenerator
+from ml.inference import IntentClassifier
 
 router = APIRouter(prefix="/api/chat", tags=["Chat"])
 
@@ -22,6 +24,8 @@ def send_chat_message(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
+    start_time = time.time()
+
     # 1. Get or create conversation
     conv = None
     if chat_in.conversation_id:
@@ -57,15 +61,39 @@ def send_chat_message(
     # 3. Retrieve conversation history for contextual understanding
     history = db.query(Message).filter(Message.conversation_id == conv.id).order_by(Message.created_at).all()
 
-    # 4. Execute RAG Generator
-    generator = RAGGenerator(db)
-    answer, citations, is_abstention, latency_ms, retrieved = generator.generate_answer(
-        query=chat_in.message,
-        history=history[:-1],  # exclude just added message
-        document_id=chat_in.document_id
-    )
+    # 4. Deep Learning Intent Classification & Routing via DistilBERT
+    classifier = IntentClassifier()
+    intent_res = classifier.predict(chat_in.message.strip())
+    detected_intent = intent_res["intent"]
+    intent_conf = intent_res["confidence"]
+    is_low_conf = intent_res["is_low_confidence"]
+    routing = intent_res["routing_decision"]
+    target_kb = chat_in.knowledge_base or intent_res.get("suggested_knowledge_base", "BCCL_Rules")
 
-    # 5. Record Assistant Message
+    # 5. Handle Conversational Intents or execute Grounded RAG Generator
+    if routing == "GREETING" and not is_low_conf:
+        answer = "Hello! I am the official BCCL Enterprise AI Knowledge Assistant. How can I assist you with BCCL Rules, CDA provisions, suspension, misconduct, or disciplinary procedures today?"
+        citations = []
+        is_abstention = False
+        retrieved = []
+        latency_ms = (time.time() - start_time) * 1000.0
+    elif routing == "GOODBYE" and not is_low_conf:
+        answer = "Thank you for using the BCCL Enterprise AI Knowledge Assistant. Feel free to return whenever you need guidance on BCCL governance and rules. Have a great day!"
+        citations = []
+        is_abstention = False
+        retrieved = []
+        latency_ms = (time.time() - start_time) * 1000.0
+    else:
+        generator = RAGGenerator(db)
+        answer, citations, is_abstention, _, retrieved = generator.generate_answer(
+            query=chat_in.message,
+            history=history[:-1],  # exclude just added message
+            document_id=chat_in.document_id,
+            knowledge_base=target_kb
+        )
+        latency_ms = (time.time() - start_time) * 1000.0
+
+    # 6. Record Assistant Message
     citations_data = [c.model_dump() for c in citations]
     retrieved_summary = [{"chunk_id": c[0].id, "score": round(c[1], 4)} for c in retrieved]
 
@@ -83,13 +111,20 @@ def send_chat_message(
     db.commit()
     db.refresh(asst_msg)
 
-    # 6. Audit Log
+    # 7. Audit Log
     audit = AuditLog(
         user_id=current_user.id,
         username=current_user.username,
         action="QUERY_EXECUTED",
         resource=f"conversation/{conv.id}",
-        details_json=json.dumps({"query": chat_in.message[:80], "latency_ms": latency_ms, "is_abstention": is_abstention}),
+        details_json=json.dumps({
+            "query": chat_in.message[:80],
+            "detected_intent": detected_intent,
+            "intent_confidence": intent_conf,
+            "latency_ms": latency_ms,
+            "is_abstention": is_abstention,
+            "knowledge_base": target_kb
+        }),
         created_at=datetime.now(timezone.utc)
     )
     db.add(audit)
@@ -102,7 +137,15 @@ def send_chat_message(
         citations=citations,
         is_abstention=is_abstention,
         latency_ms=round(latency_ms, 2),
-        retrieval_count=len(retrieved)
+        retrieval_count=len(retrieved),
+        recognized_speech=chat_in.message.strip(),
+        transcribed_text=chat_in.message.strip(),
+        text=chat_in.message.strip(),
+        detected_intent=detected_intent,
+        intent=detected_intent,
+        intent_confidence=intent_conf,
+        confidence=intent_conf,
+        knowledge_base=target_kb
     )
 
 @router.post("/stream")
@@ -143,7 +186,12 @@ def stream_chat_message(
 
     def event_stream():
         full_content = []
-        for token in generator.generate_stream(chat_in.message, history=history[:-1], document_id=chat_in.document_id):
+        for token in generator.generate_stream(
+            chat_in.message,
+            history=history[:-1],
+            document_id=chat_in.document_id,
+            knowledge_base=chat_in.knowledge_base
+        ):
             full_content.append(token)
             yield f"data: {json.dumps({'token': token, 'conversation_id': conv.id})}\n\n"
         

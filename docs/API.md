@@ -56,9 +56,11 @@ Submits a natural language query through the RAG pipeline.
   {
     "message": "What are the rules for suspension?",
     "conversation_id": null,
-    "document_id": null
+    "document_id": null,
+    "knowledge_base": "BCCL_Rules"
   }
   ```
+- **Knowledge Base Values:** `"BCCL_Rules"` (55-page amended rules, 295 chunks), `"CDA_Rules"` (baseline rules, 51 chunks), `"all"` (unified search across all sources).
 - **Response:** `200 OK`
   ```json
   {
@@ -139,3 +141,79 @@ Returns timestamped administrative audit trail.
 
 ### `POST /api/feedback`
 Submits user rating (`1` for positive, `-1` for negative) and comments for a generated answer.
+
+---
+
+## 6. Voice & Deep Learning Intent Endpoints
+
+### `POST /api/voice/transcribe`
+Transcribes audio file or buffer to text using OpenAI Whisper.
+- **Content-Type:** `multipart/form-data`
+- **Form Fields:**
+  - `file`: Audio file (`.wav`, `.mp3`, `.ogg`, `.flac`)
+  - `language`: Optional language code (`"en"`, default)
+- **Response:** `200 OK`
+  ```json
+  {
+    "text": "What are the rules regarding suspension?",
+    "language": "en",
+    "duration_seconds": 2.45
+  }
+  ```
+
+### `POST /api/voice/classify`
+Classifies input query intent using fine-tuned DistilBERT model.
+- **Content-Type:** `application/json`
+- **Request Body:**
+  ```json
+  {
+    "text": "What are the rules regarding suspension?"
+  }
+  ```
+- **Response:** `200 OK`
+  ```json
+  {
+    "intent": "suspension",
+    "confidence": 0.8742,
+    "all_probabilities": {
+      "suspension": 0.8742,
+      "disciplinary_procedure": 0.0512,
+      "misconduct": 0.0315
+    }
+  }
+  ```
+
+### `POST /api/voice/chat`
+Full multimodal voice RAG endpoint: Audio $\to$ Whisper STT $\to$ DistilBERT Intent $\to$ Hybrid RAG $\to$ Grounded Answer + Citations.
+- **Content-Type:** `multipart/form-data`
+- **Form Fields:**
+  - `file`: WAV/Audio recording file
+  - `conversation_id`: Optional conversation ID for multi-turn history
+  - `knowledge_base`: Target knowledge base (`"BCCL_Rules"`, `"CDA_Rules"`, or `"all"`)
+- **Response:** `200 OK`
+  ```json
+  {
+    "transcribed_text": "What are the rules regarding suspension?",
+    "intent": "suspension",
+    "confidence": 0.8742,
+    "conversation_id": 1,
+    "message_id": 15,
+    "answer": "Under BCCL / CDA Rule 20, an employee may be placed under suspension by the Appointing Authority or Disciplinary Authority...",
+    "citations": [
+      {
+        "chunk_id": 112,
+        "document_id": 2,
+        "document_name": "CDA_Rules_1978_amended_upto_July_2006_10052018-ocr.pdf",
+        "page_number": 21,
+        "rule_number": "Rule 20",
+        "section_title": "SUSPENSION",
+        "excerpt": "Rule 20.1: The Appointing Authority or any authority to which it is subordinate or the Disciplinary Authority may place an employee under suspension...",
+        "score": 0.8421
+      }
+    ],
+    "is_abstention": false,
+    "latency_ms": 320.5,
+    "retrieval_count": 5
+  }
+  ```
+

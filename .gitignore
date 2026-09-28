@@ -18,8 +18,10 @@ env/
 *.sqlite3
 
 # Uploaded / processed documents
-data/raw/
+data/raw/*
+!data/raw/BCCL_CDA_Rules_1978.pdf
 data/processed/
+* (1).pdf
 
 # Node / Next.js
 frontend/node_modules/
@@ -39,3 +41,4 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+scratch/

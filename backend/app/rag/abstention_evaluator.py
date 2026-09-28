@@ -36,13 +36,16 @@ class AbstentionEvaluator:
             "more", "most", "other", "some", "such", "no", "nor", "not", "only", "own", "same",
             "so", "than", "too", "very", "s", "t", "just", "don", "shouldn", "now", "tell", "me",
             "explain", "rules", "rule", "policy", "provisions", "bccl", "cil", "bharat", "coking",
-            "coal", "limited", "company", "employee", "employees", "apply", "officer", "department"
+            "coal", "limited", "company", "employee", "employees", "apply", "officer", "department",
+            "interest", "rate", "rates", "personal", "loan", "loans", "branch", "branches",
+            "many", "much", "time", "days", "day", "file", "filing", "give", "given", "take", "order", "orders",
+            "regarding", "concerning", "pertaining", "related", "relating", "details", "procedure", "procedures", "guidelines", "guide", "lines"
         }
         
         query_tokens = [w for w in re.findall(r"[a-z]+", query.lower()) if len(w) > 2 and w not in stop_words]
         
-        # Look at top 3 chunks content (excluding header words)
-        top_chunks_text = " ".join([f"{c[0].rule_number or ''} {c[0].section_title or ''} {c[0].content}".lower() for c in retrieved_chunks[:3]])
+        # Look at retrieved chunks content (excluding header words)
+        top_chunks_text = " ".join([f"{c[0].rule_number or ''} {c[0].section_title or ''} {c[0].content}".lower() for c in retrieved_chunks])
 
         # If significant query topic tokens exist, ensure topic keywords actually appear in the chunk content
         if query_tokens:

@@ -1,0 +1,109 @@
+{
+  "model_architecture": "DistilBertForSequenceClassification",
+  "base_model": "distilbert-base-uncased",
+  "num_classes": 11,
+  "total_test_samples": 50,
+  "metrics": {
+    "accuracy": 0.68,
+    "macro_precision": 0.7224,
+    "macro_recall": 0.6909,
+    "macro_f1": 0.6509,
+    "weighted_precision": 0.7234,
+    "weighted_recall": 0.68,
+    "weighted_f1": 0.6483
+  },
+  "per_class_report": {
+    "appeal_procedure": {
+      "precision": 0.4444444444444444,
+      "recall": 1.0,
+      "f1-score": 0.6153846153846154,
+      "support": 4.0
+    },
+    "clarification_general": {
+      "precision": 0.6666666666666666,
+      "recall": 0.4,
+      "f1-score": 0.5,
+      "support": 5.0
+    },
+    "disciplinary_procedure": {
+      "precision": 0.75,
+      "recall": 0.75,
+      "f1-score": 0.75,
+      "support": 4.0
+    },
+    "general_conduct": {
+      "precision": 1.0,
+      "recall": 0.6,
+      "f1-score": 0.75,
+      "support": 5.0
+    },
+    "goodbye": {
+      "precision": 0.7142857142857143,
+      "recall": 1.0,
+      "f1-score": 0.8333333333333334,
+      "support": 5.0
+    },
+    "greeting": {
+      "precision": 1.0,
+      "recall": 0.25,
+      "f1-score": 0.4,
+      "support": 4.0
+    },
+    "major_penalty": {
+      "precision": 0.5,
+      "recall": 0.2,
+      "f1-score": 0.2857142857142857,
+      "support": 5.0
+    },
+    "minor_penalty": {
+      "precision": 0.6666666666666666,
+      "recall": 0.4,
+      "f1-score": 0.5,
+      "support": 5.0
+    },
+    "misconduct": {
+      "precision": 0.8333333333333334,
+      "recall": 1.0,
+      "f1-score": 0.9090909090909091,
+      "support": 5.0
+    },
+    "out_of_scope": {
+      "precision": 0.8,
+      "recall": 1.0,
+      "f1-score": 0.8888888888888888,
+      "support": 4.0
+    },
+    "suspension": {
+      "precision": 0.5714285714285714,
+      "recall": 1.0,
+      "f1-score": 0.7272727272727273,
+      "support": 4.0
+    },
+    "accuracy": 0.68,
+    "macro avg": {
+      "precision": 0.7224386724386723,
+      "recall": 0.6909090909090909,
+      "f1-score": 0.6508804326986145,
+      "support": 50.0
+    },
+    "weighted avg": {
+      "precision": 0.7233650793650794,
+      "recall": 0.68,
+      "f1-score": 0.6483375513375513,
+      "support": 50.0
+    }
+  },
+  "classes": [
+    "appeal_procedure",
+    "clarification_general",
+    "disciplinary_procedure",
+    "general_conduct",
+    "goodbye",
+    "greeting",
+    "major_penalty",
+    "minor_penalty",
+    "misconduct",
+    "out_of_scope",
+    "suspension"
+  ]
+}

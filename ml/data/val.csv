@@ -1,0 +1,50 @@
+text,intent
+Hi support assistant,greeting
+Powers of Chairman Coal India or Board as Reviewing Authority,appeal_procedure
+Can an employee accept valuable gifts under conduct rules?,misconduct
+Imposition of major penalty following vigilance inquiry,major_penalty
+What is the lightest penalty that can be awarded to an executive?,minor_penalty
+"Appreciate the help, bye",goodbye
+Hi are you ready to assist?,greeting
+What happens when criminal trial against a suspended employee ends in acquittal?,suspension
+Can ex-parte inquiry be conducted if employee does not attend?,disciplinary_procedure
+Prohibition against promoting communal disharmony or unlawful assembly,general_conduct
+"Thanks, see you",goodbye
+What are the articles of charge?,disciplinary_procedure
+Goodbye,goodbye
+"Thanks a lot, I am done",goodbye
+"Falsification of company records, muster rolls, or coal weighment",misconduct
+What is the jurisdiction of BCCL disciplinary authorities?,clarification_general
+What are the rights of a suspended executive?,suspension
+Is sexual harassment classified as misconduct?,misconduct
+Can the Appellate Authority enhance the penalty awarded?,appeal_procedure
+List the minor penalties under Rule 27.,minor_penalty
+Rules regarding acquiring and disposing of movable and immovable property,general_conduct
+What is the weather in Dhanbad today?,out_of_scope
+Is there a provision for revision or review of orders?,appeal_procedure
+Action by Disciplinary Authority on receipt of inquiry report,disciplinary_procedure
+Conflict of interest and employing near relatives in business,misconduct
+How long can an employee remain under suspension without inquiry?,suspension
+What are the statutory major penalties in BCCL?,major_penalty
+What major penalties are specified under Rule 27 clause 2?,major_penalty
+Recommend some good movies on Netflix.,out_of_scope
+Good morning assistant,greeting
+What is quantum computing?,out_of_scope
+Does the charged employee get a copy of the inquiry report?,disciplinary_procedure
+Does Appellate Authority have power to set aside the punishment?,appeal_procedure
+Stagnation reduction in pay scale for not exceeding three years,minor_penalty
+Is withholding of increment with cumulative effect a minor penalty?,minor_penalty
+How do I fix a flat tire on my bicycle?,out_of_scope
+General principles of executive discipline in Bharat Coking Coal Limited,general_conduct
+Can an employee inspect documents during a disciplinary proceeding?,disciplinary_procedure
+What are the latest smartphone releases?,out_of_scope
+Difference between Standing Orders and CDA Rules in BCCL,clarification_general
+What are the rules regarding suspension?,suspension
+Namaste,greeting
+How is the seniority of executives determined under CIL guidelines?,clarification_general
+Where can I find the definition of family under conduct rules?,clarification_general
+Hey BCCL knowledge bot,greeting
+Orders against which no appeal lies under BCCL rules,appeal_procedure
+Suspension provisions under Chapter III,suspension
+Prohibition of dowry and domestic violence in conduct rules,general_conduct
+Is reduction to a lower grade a major punishment?,major_penalty
