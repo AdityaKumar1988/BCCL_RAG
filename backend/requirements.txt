@@ -21,3 +21,5 @@ google-genai>=0.1.1
 openai>=1.40.0
 psycopg2-binary>=2.9.9
 psycopg[binary]>=3.1.18
+torch
+transformers>=4.40.0

@@ -10,6 +10,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libmupdf-dev \
     && rm -rf /var/lib/apt/lists/*
 
+# Install PyTorch CPU-only (lightweight ~160MB wheel instead of 2.5GB CUDA)
+RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
+
 COPY backend/requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
