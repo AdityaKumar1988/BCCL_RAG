@@ -9,10 +9,12 @@ os.makedirs(settings.DATA_DIR, exist_ok=True)
 os.makedirs(settings.RAW_DATA_DIR, exist_ok=True)
 os.makedirs(settings.PROCESSED_DATA_DIR, exist_ok=True)
 
-# Standardize database URL (handles Render / Heroku postgres:// -> postgresql://)
+# Standardize database URL (guarantee psycopg2 driver for PostgreSQL)
 db_url = settings.DATABASE_URL
 if db_url.startswith("postgres://"):
-    db_url = db_url.replace("postgres://", "postgresql://", 1)
+    db_url = db_url.replace("postgres://", "postgresql+psycopg2://", 1)
+elif db_url.startswith("postgresql://") and not db_url.startswith("postgresql+"):
+    db_url = db_url.replace("postgresql://", "postgresql+psycopg2://", 1)
 
 engine_kwargs = {"echo": False}
 if db_url.startswith("sqlite"):
